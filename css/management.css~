@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+  font-family: "San Fransisco Display Light";
+  src: url("SanFranciscoFont-master/SanFranciscoDisplay-Light.otf"); 
+}
+
+html {
+	font-family: "San Fransisco Display Light";
+}
+
+body {
+	margin: 0;
+}
+
+h1 {
+	width: 100%;
+	font-size: 3em;
+	text-align: center;
+}
+
+h2 {
+	padding: 1%;
+}
+
+.result {
+	color: #000000;
+	text-decoration: none;
+}
+
+#signinrequired {
+	
+}
+
+#pickgame {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-content: center;
+}
+
+#pickgame #game {
+	width: 60vw;
+	font-size: 1.8em;
+	display: block;
+	margin: auto;
+}
+
+#gameresult {
+	padding: 1%;
+	overflow-y: scroll;
+	max-height: 50vh;
+	height: 50vh;
+	width: 60vw;
+	margin: auto;
+	
+	transition: .5s;
+}
+
+#gameresult a:hover h2 {
+	background-color: #EEEEEE;
+	text-decoration: underline;
+}
+
+#gameresult::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+#gameresult::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+#gameresult::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+input {
+	padding: 1%;
+	width: 30vw;
+	border: none;
+	outline: none;
+	margin: 1% 0 0;
+	font-size: 1.2em;
+	text-align: center;
+	background: #FFFFFF;
+	font-family: "San Fransisco Display Light";
+	border-bottom: 2px solid rgba(0, 128, 0, 1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+section {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+article {
+	flex: 1 0 20%;
+}

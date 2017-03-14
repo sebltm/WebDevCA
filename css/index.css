@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+  font-family: "San Fransisco Display Light";
+  src: url("/sm807/coursework/SanFranciscoFont-master/SanFranciscoDisplay-Light.otf"); 
+}
+
+html {
+	font-family: "San Fransisco Display Light";
+}
+
+body {
+	margin: 0;
+}
+
+h1 {
+	width: 100%;
+	font-size: 3em;
+	text-align: center;
+}
+
+form {
+	height: 80vh;
+	display: flex;
+	align-items: center;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+}
+
+input {
+	padding: 1%;
+	width: 60vw;
+	outline: none;
+	margin: 1% 0 0;
+	display: block;
+	font-size: 3em;
+	background: #FFFFFF;
+	border: none;
+	font-family: "San Fransisco Display Light";
+	border-bottom: 2px solid rgba(0, 128, 0, 1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#submitbutton {
+	border: 1px solid black;
+}
