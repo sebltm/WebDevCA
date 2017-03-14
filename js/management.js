@@ -16,11 +16,11 @@ function fetchData(id) {
 	$.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
 		data = JSON.parse(data);
 		var titleEl = document.createElement("h2");
-		titleEl.appendChild(document.createTextNode(data[0].name));
+		titleEl.appendChild(document.createTextNode(data[1]));
 		document.getElementById("gameinfo").appendChild(titleEl);
 
 		var stockEl = document.createElement("h2");
-		stockEl.appendChild(document.createTextNode("Stock: " + data[0].stock));
+		stockEl.appendChild(document.createTextNode("Stock: " + data[4]));
 		document.getElementById("gameinfo").appendChild(stockEl);
 	});
 }
