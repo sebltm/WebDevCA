@@ -17,7 +17,7 @@ function fetchData(id) {
 		req.abort();
 	}
 	
-	req = $.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
+	var req = $.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
 		data = JSON.parse(data);
 		var titleEl = document.createElement("h2");
 		titleEl.appendChild(document.createTextNode(data[1]));

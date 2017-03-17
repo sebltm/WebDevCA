@@ -6,10 +6,10 @@ require("dbconnect.php");
 if(isset($_SESSION["username"])) {
 	if(isset($_REQUEST['term'])) {
     $stmt = $db->prepare("SELECT id, name FROM games WHERE name LIKE ? ORDER BY name ASC");
-		$request = $_REQUEST['term']."%";
-		$stmt->bind_param("s", $request);
+	$request = $_REQUEST['term']."%";
+	$stmt->bind_param("s", $request);
     $stmt->bind_result($id, $name);
-		$stmt->execute();
+	$stmt->execute();
 
     if($stmt->fetch()) {
       ?><a href="#" onClick="fetchData(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php

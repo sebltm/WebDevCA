@@ -1,16 +1,29 @@
 <?php
-	session_start();
-	$_SESSION["username"] = "sebltm";
-?>
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Untitled Document</title>
-	</head>
+session_start();
 
-	<body>
-	</body>
+require("dbconnect.php");
+
+if(isset($_POST["username"]) && isset($_POST["password"])) {
+	$user = $_POST["username"];
+	$pass = sha1($_POST["password"]);
 	
-	<script>window.location.assign("../managementInterface.php")</script>
-</html>
+	$stmt = $db->prepare("SELECT username FROM users WHERE (username = ? OR email = ?) AND password = ?");
+	
+	$stmt->bind_param("sss", $user, $user, $pass);
+	$stmt->bind_result($username);
+	$stmt->execute();
+
+	if($stmt->fetch()) {
+		echo 'true';
+		$_SESSION['username'] = $username;
+	}
+	
+	else {
+		echo 'false';
+	}
+}
+
+else {
+	echo 'false';
+}
+?>

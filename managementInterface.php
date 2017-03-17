@@ -1,6 +1,7 @@
 <?php
 	session_start();
 ?>
+
 <!doctype html>
 <html>
 	<head>
@@ -17,6 +18,8 @@
 		<h1>Game&amp;Co Management Interface</h1>
 
 		<?php if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { ?>
+			<h2 id="logout">Welcome <?php echo $_SESSION["username"] ?> <a href="includes/logout.php">Logout</a></h2>
+		
 			<article id="pickgame">
 				<input id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
 				<div id="gameresult"></div>
