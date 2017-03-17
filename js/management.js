@@ -13,7 +13,11 @@ function fetchData(id) {
 	"use strict";
 	$("#gameresult").css({"max-height" : "0", "overflow-y": "hidden", "padding": "0%"});
 
-	$.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
+	if(req) {
+		req.abort();
+	}
+	
+	req = $.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
 		data = JSON.parse(data);
 		var titleEl = document.createElement("h2");
 		titleEl.appendChild(document.createTextNode(data[1]));
