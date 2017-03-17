@@ -7,6 +7,12 @@ $(window).on("load", function() {
 	$('#game').on("keyup input focus", function() {
 		results();
 	});
+	
+	document.getElementById("update").addEventListener("change", function() {
+		if(document.getElementById("update").value >= 0) {
+			$.post("includes/stockupdate", {stock: document.getElementById("update").value, name: title});
+		}
+	});
 });
 
 function fetchData(id) {
@@ -19,7 +25,8 @@ function fetchData(id) {
 	
 	var req = $.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
 		data = JSON.parse(data);
-		document.getElementById("title").innerHTML = data.name;
+		title = data.name;
+		document.getElementById("title").innerHTML = title;
 		document.getElementById("stock").innerHTML = "Stock: "+data.stock;
 		document.getElementById("sold").innerHTML = "Sold: "+data.sold;
 		document.getElementById("publisher").innerHTML = "Publisher: "+data.publisher;

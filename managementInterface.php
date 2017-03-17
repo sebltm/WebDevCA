@@ -34,12 +34,13 @@
 					<h3 id="publisher"></h3>
 				</article>
 
-				<article id="removegame">
-
-				</article>
-
 				<article id="updatestock">
-
+					<h2>Update the amount of items in stock:</h2>
+					<input id="update" type="number">
+				</article>
+				
+				<article id="removegame">
+				
 				</article>
 			</section>
 		<?php } else { ?>
