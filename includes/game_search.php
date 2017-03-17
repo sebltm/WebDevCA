@@ -5,22 +5,22 @@ require("dbconnect.php");
 
 if(isset($_SESSION["username"])) {
 	if(isset($_REQUEST['term'])) {
-    $stmt = $db->prepare("SELECT id, name FROM games WHERE name LIKE ? ORDER BY name ASC");
-	$request = $_REQUEST['term']."%";
-	$stmt->bind_param("s", $request);
-    $stmt->bind_result($id, $name);
-	$stmt->execute();
+		$stmt = $db->prepare("SELECT id, name FROM games WHERE name LIKE ? ORDER BY name ASC");
+		$request = $_REQUEST['term']."%";
+		$stmt->bind_param("s", $request);
+		$stmt->bind_result($id, $name);
+		$stmt->execute();
 
-    if($stmt->fetch()) {
-      ?><a href="#" onClick="fetchData(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
-      while($stmt->fetch()) {
-        ?><a href="#" onClick="fetchData(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
-      }
-    }
+		if($stmt->fetch()) {
+			?><a href="#" onClick="fetchData(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
+			while($stmt->fetch()) {
+				?><a href="#" onClick="fetchData(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
+			}
+		}
 
-    else {
-      ?><h2>No results</h2><?php
-    }
+		else {
+			?><h2>No results</h2><?php
+		}
 	}
 
 	else if(isset($_REQUEST["all"]) && $_REQUEST["all"] == 1) {

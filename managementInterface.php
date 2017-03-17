@@ -28,7 +28,10 @@
 			<section>
 
 				<article id="gameinfo">
-
+					<h2 id="title"></h2>
+					<h3 id="stock"></h3>
+					<h3 id="sold"></h3>
+					<h3 id="publisher"></h3>
 				</article>
 
 				<article id="removegame">

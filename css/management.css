@@ -12,16 +12,16 @@ html {
 
 body {
 	margin: 0;
+	width: 100vw;
+}
+
+h1, h2 {
+	margin: 2%;
 }
 
 h1 {
-	width: 100%;
 	font-size: 3em;
 	text-align: center;
-}
-
-h2 {
-	padding: 1%;
 }
 
 .result {
@@ -30,7 +30,6 @@ h2 {
 }
 
 #logout {
-	width: 100%;
 	text-align: center;
 }
 
@@ -60,6 +59,15 @@ h2 {
 	transition: .5s;
 }
 
+#gameresult h2 {
+	padding: 1%;
+	color: #000000;
+}
+
+#gameresult a {
+	text-decoration: none
+}
+
 #gameresult a:hover h2 {
 	background-color: #EEEEEE;
 	text-decoration: underline;
@@ -76,6 +84,18 @@ h2 {
 #gameresult::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
+}
+
+section {
+	margin: 2%;
+	display: flex;
+	align-items: center;
+}
+#gameinfo {
+	flex: 1;
+	flex-flow: row nowrap;
+	width: 80%;
+	margin: auto;
 }
 
 input {

@@ -1,10 +1,10 @@
 var resultDropdown = $("#gameresult");
 
 $(window).on("load", function() {
+	"use strict";
 	results();
 
 	$('#game').on("keyup input focus", function() {
-		"use strict";
 		results();
 	});
 });
@@ -19,19 +19,21 @@ function fetchData(id) {
 	
 	var req = $.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
 		data = JSON.parse(data);
-		var titleEl = document.createElement("h2");
-		titleEl.appendChild(document.createTextNode(data[1]));
-		document.getElementById("gameinfo").appendChild(titleEl);
-
-		var stockEl = document.createElement("h2");
-		stockEl.appendChild(document.createTextNode("Stock: " + data[4]));
-		document.getElementById("gameinfo").appendChild(stockEl);
+		document.getElementById("title").innerHTML = data.name;
+		document.getElementById("stock").innerHTML = "Stock: "+data.stock;
+		document.getElementById("sold").innerHTML = "Sold: "+data.sold;
+		document.getElementById("publisher").innerHTML = "Publisher: "+data.publisher;
 	});
 }
 
+function emptyInfo() {
+	"use strict";
+	document.getElementById("title").innerHTML = "";
+}
+
 function results() {
+	"use strict";
 	var inputVal = $('#game').val();
-	$("#gameinfo").empty();
 	$("#gameresult").css({"max-height" : "50vh", "overflow-y": "scroll", "padding": "1%"});
 
 	if(inputVal.length){
@@ -49,4 +51,7 @@ function results() {
 	else {
 		resultDropdown.empty();
 	}
+	
+	
+	emptyInfo();
 }

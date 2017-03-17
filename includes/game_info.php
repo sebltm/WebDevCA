@@ -8,8 +8,14 @@ if(isset($_REQUEST['search_id'])) {
 		$stmt->bind_result($id, $name, $publisher, $releasedate, $stock, $sold);
 		$stmt->execute();
 		if($stmt->fetch()) {
-			$result_array = array();
-			array_push($result_array, $id, $name, $publisher, $releasedate, $stock, $sold);
+			$result_array = array(
+				"id" => $id,
+				"name" => $name,
+				"publisher" => $publisher,
+				"releasedate" => $releasedate,
+				"stock" => $stock,
+				"sold" => $sold
+			);
 			$json = json_encode($result_array);
 			echo $json;
 		}
