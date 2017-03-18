@@ -1,22 +1,33 @@
 var resultDropdown = $("#gameresult");
 
+var currentMovie = {
+	id: undefined,
+	title: undefined,
+	stock: undefined,
+	sold: undefined,
+	publisher: undefined
+};
+
 $(window).on("load", function() {
-	"use strict";
 	results();
 
 	$('#game').on("keyup input focus", function() {
 		results();
 	});
 	
-	document.getElementById("update").addEventListener("change", function() {
+	$("#update").on("keyup input change", function() {
 		if(document.getElementById("update").value >= 0) {
-			$.post("includes/stockupdate", {stock: document.getElementById("update").value, name: title});
+			var stockupdate = $.post("includes/stockupdate", {stock: document.getElementById("update").value, name: currentMovie.title});
+			
+			stockupdate.done(function() {
+				fetchData(currentMovie.id);
+			});
 		}
 	});
 });
 
 function fetchData(id) {
-	"use strict";
+	$("#updatestock").show();
 	$("#gameresult").css({"max-height" : "0", "overflow-y": "hidden", "padding": "0%"});
 
 	if(req) {
@@ -25,17 +36,35 @@ function fetchData(id) {
 	
 	var req = $.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
 		data = JSON.parse(data);
-		title = data.name;
-		document.getElementById("title").innerHTML = title;
+		
+		currentMovie.id = data.id;
+		currentMovie.title = data.name;
+		currentMovie.stock = data.stock;
+		currentMovie.sold = data.sold;
+		currentMovie.publisher = data.publisher;
+		
+		document.getElementById("title").innerHTML = data.name;
 		document.getElementById("stock").innerHTML = "Stock: "+data.stock;
 		document.getElementById("sold").innerHTML = "Sold: "+data.sold;
 		document.getElementById("publisher").innerHTML = "Publisher: "+data.publisher;
+		
+		document.getElementById("update").value = data.stock;
 	});
 }
 
 function emptyInfo() {
-	"use strict";
 	document.getElementById("title").innerHTML = "";
+	document.getElementById("stock").innerHTML = "";
+	document.getElementById("sold").innerHTML = "";
+	document.getElementById("publisher").innerHTML = "";
+	
+	currentMovie.id = null;
+	currentMovie.title = null;
+	currentMovie.stock = null;
+	currentMovie.sold = null;
+	currentMovie.publisher = null;
+	
+	$("#updatestock").hide();
 }
 
 function results() {
