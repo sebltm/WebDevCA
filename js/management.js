@@ -19,8 +19,13 @@ $(window).on("load", function() {
 		
 		$("#game").css({
 			"width": "60vw",
-			"font-size": "1.8em"
+			"font-size": "1.8em",
+			"border-bottom": "2px solid rgba(0, 128, 0, 1)",
+			"border-radius": "0px",
+			"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 		});
+		
+		document.getElementById("game").setAttribute("placeholder", "Name of video game");
 	});
 	
 	$("#update").on("keyup input change", function() {
@@ -38,6 +43,7 @@ $(window).on("load", function() {
 function fetchData(id) {
 	$("#gameinfo").show();
 	$("#updatestock").show();
+	document.getElementById("game").value = "";
 	
 	$("#gameresult").css({
 			"max-height" : "0",
@@ -45,9 +51,14 @@ function fetchData(id) {
 			"padding": "0%"
 	});
 	
+	document.getElementById("game").setAttribute("placeholder", "");
+	
 	$("#game").css({
-		"width": "20vw",
-		"font-size": "1em"
+		"width": "2vw",
+		"font-size": "1em",
+		"border": "1px solid rgba(128, 128, 128, 0.5)",
+		"border-radius": "100%",
+		"box-shadow": "0 0px 0px 0 rgba(0, 0, 0, 0.0)"
 	});
 
 	if(req) {

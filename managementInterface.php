@@ -7,7 +7,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="css/management.css" type="text/css" rel="stylesheet"></style>
+		<link href="css/management.css" type="text/css" rel="stylesheet">
+		<link href="css/search.css" type="text/javascript" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="js/management.js"></script>
 		<title>Game&amp;Co</title>
@@ -21,7 +22,7 @@
 			<h2 id="logout">Welcome <?php echo $_SESSION["username"] ?> <a href="includes/logout.php">Logout</a></h2>
 		
 			<article id="pickgame">
-				<input id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
+				<input required="required" id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
 				<div id="gameresult"></div>
 			</article>
 
