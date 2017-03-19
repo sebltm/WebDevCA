@@ -25,6 +25,12 @@ $(window).on("load", function() {
 			"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 		});
 		
+		$("#game").hover(
+		function() {
+			this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
+			this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+		});
+		
 		document.getElementById("game").setAttribute("placeholder", "Name of video game");
 	});
 	
@@ -51,14 +57,23 @@ function fetchData(id) {
 			"padding": "0%"
 	});
 	
-	document.getElementById("game").setAttribute("placeholder", "");
+	document.getElementById("game").setAttribute("placeholder", "...");
 	
 	$("#game").css({
 		"width": "2vw",
-		"font-size": "1em",
-		"border": "1px solid rgba(128, 128, 128, 0.5)",
-		"border-radius": "100%",
+		"border": "1px solid black",
 		"box-shadow": "0 0px 0px 0 rgba(0, 0, 0, 0.0)"
+	});
+	
+	$("#game").hover(
+		function() {
+			this.style.borderBottom = "2px solid rgb(0, 128, 0)";
+			this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+		},
+		
+		function() {
+			this.style.borderBottom = "1px solid black";
+			this.style.boxShadow = "0 0px 0px 0 rgba(0, 0, 0, 0.0)";
 	});
 
 	if(req) {
