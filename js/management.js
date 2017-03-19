@@ -12,7 +12,15 @@ $(window).on("load", function() {
 	results();
 
 	$('#game').on("keyup input focus", function() {
+		$("#gameinfo").hide();
+		$("#updatestock").hide();
+		
 		results();
+		
+		$("#game").css({
+			"width": "60vw",
+			"font-size": "1.8em"
+		});
 	});
 	
 	$("#update").on("keyup input change", function() {
@@ -24,11 +32,23 @@ $(window).on("load", function() {
 			});
 		}
 	});
+	
 });
 
 function fetchData(id) {
+	$("#gameinfo").show();
 	$("#updatestock").show();
-	$("#gameresult").css({"max-height" : "0", "overflow-y": "hidden", "padding": "0%"});
+	
+	$("#gameresult").css({
+			"max-height" : "0",
+			"overflow-y": "hidden", 
+			"padding": "0%"
+	});
+	
+	$("#game").css({
+		"width": "20vw",
+		"font-size": "1em"
+	});
 
 	if(req) {
 		req.abort();
