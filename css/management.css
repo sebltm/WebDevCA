@@ -12,7 +12,7 @@ html {
 
 body {
 	margin: 0;
-	width: 100vw;
+	width: 100%;
 }
 
 h1, h2 {
@@ -22,6 +22,18 @@ h1, h2 {
 h1 {
 	font-size: 3em;
 	text-align: center;
+}
+
+input {
+	padding: 1%;
+	border: none;
+	outline: none;
+	font-size: 1.2em;
+	text-align: center;
+	background: #FFFFFF;
+	font-family: "San Fransisco Display Light";
+	border-bottom: 2px solid rgba(0, 128, 0, 1);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .result {
@@ -95,38 +107,51 @@ h1 {
 }
 
 section {
+	height: 35vh;
+	margin: 2% 0 0;
 	width: 100%;
 	display: flex;
 	align-items: center;
 }
 
 article {
+	height: 100%;
 	flex: 1;
-	margin: 1%;
 }
 
 #gameinfo {
+	padding: 0 0 0 1%;
 	display: none;
 	border-right: 1px solid black;
-	flex-flow: row nowrap;
+	flex-flow: column;
 }
 
 #updatestock {
+	text-align: center;
 	display: none;
+	flex-flow: column;
+	justify-content: center;
+	align-content: center;
 }
 
-input {
-	padding: 1%;
-	width: 30vw;
-	border: none;
-	outline: none;
-	margin: 1% 0 0;
-	font-size: 1.2em;
-	text-align: center;
-	background: #FFFFFF;
-	font-family: "San Fransisco Display Light";
-	border-bottom: 2px solid rgba(0, 128, 0, 1);
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#update {
+	width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+
+#removegame {
+	display: none;
+	border-left: 1px solid black;
+	align-items: center;
+	justify-content: center;
+}
+
+#remove {
+	cursor: pointer;
+	font-weight: bold;
+	height: 20vh;
+	border: 5px solid red;
 }
 
 @media (max-width: 1020px) {

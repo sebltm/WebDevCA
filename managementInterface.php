@@ -17,7 +17,10 @@
 
 		<h1>Game&amp;Co Management Interface</h1>
 
-		<?php if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { ?>
+		
+		<?php 
+		//Only display the management interface if the user is signed in, otherwise prompt the user to sign in using the sigin page
+		if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { ?>
 			<h2 id="logout">Welcome <?php echo $_SESSION["username"] ?> <a href="includes/logout.php">Logout</a></h2>
 		
 			<article id="pickgame">
@@ -40,12 +43,13 @@
 				</article>
 				
 				<article id="removegame">
-				
+					<form id="removeGameForm" action="deletegame.php">
+						<input id="remove" type="submit" value="Delete the game. This action is irreversible.">
+					</form>
 				</article>
 			</section>
 		<?php } else { ?>
 			<h2>Please <a href="index.php">sign-in</a></h2>
-
 		<?php } ?>
 	</body>
 </html>

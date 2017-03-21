@@ -14,6 +14,7 @@ $(window).on("load", function() {
 	$('#game').on("keyup input focus", function() {
 		$("#gameinfo").hide();
 		$("#updatestock").hide();
+		$("#removegame").hide();
 		
 		results();
 		
@@ -44,11 +45,31 @@ $(window).on("load", function() {
 		}
 	});
 	
+	$("#removeGameForm").submit(function(e) {
+		e.preventDefault();
+		
+		$.post("/sm807/coursework/includes/deletegame.php", {id: currentMovie.id}).done(function() {
+			results();
+		});
+		
+		return false;
+	});
+	
 });
 
-function fetchData(id) {
-	$("#gameinfo").show();
-	$("#updatestock").show();
+function fetchAndFormat(id) {
+	$("#gameinfo").css({
+		"display": "flex"
+	});
+	
+	$("#updatestock").css({
+		"display": "flex"
+	});
+
+	$("#removegame").css({
+		"display": "flex"
+	});
+
 	document.getElementById("game").value = "";
 	
 	$("#gameresult").css({
@@ -57,10 +78,10 @@ function fetchData(id) {
 			"padding": "0%"
 	});
 	
-	document.getElementById("game").setAttribute("placeholder", "...");
+	document.getElementById("game").setAttribute("placeholder", "Search");
 	
 	$("#game").css({
-		"width": "2vw",
+		"width": "10vw",
 		"border": "1px solid black",
 		"box-shadow": "0 0px 0px 0 rgba(0, 0, 0, 0.0)"
 	});
@@ -76,11 +97,15 @@ function fetchData(id) {
 			this.style.boxShadow = "0 0px 0px 0 rgba(0, 0, 0, 0.0)";
 	});
 
+	fetchData(id);
+}
+
+function fetchData(id) {
 	if(req) {
 		req.abort();
 	}
 	
-	var req = $.get("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
+	var req = $.post("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
 		data = JSON.parse(data);
 		
 		currentMovie.id = data.id;
@@ -96,21 +121,6 @@ function fetchData(id) {
 		
 		document.getElementById("update").value = data.stock;
 	});
-}
-
-function emptyInfo() {
-	document.getElementById("title").innerHTML = "";
-	document.getElementById("stock").innerHTML = "";
-	document.getElementById("sold").innerHTML = "";
-	document.getElementById("publisher").innerHTML = "";
-	
-	currentMovie.id = null;
-	currentMovie.title = null;
-	currentMovie.stock = null;
-	currentMovie.sold = null;
-	currentMovie.publisher = null;
-	
-	$("#updatestock").hide();
 }
 
 function results() {
@@ -136,4 +146,19 @@ function results() {
 	
 	
 	emptyInfo();
+}
+
+function emptyInfo() {
+	document.getElementById("title").innerHTML = "";
+	document.getElementById("stock").innerHTML = "";
+	document.getElementById("sold").innerHTML = "";
+	document.getElementById("publisher").innerHTML = "";
+	
+	currentMovie.id = null;
+	currentMovie.title = null;
+	currentMovie.stock = null;
+	currentMovie.sold = null;
+	currentMovie.publisher = null;
+	
+	$("#updatestock").hide();
 }

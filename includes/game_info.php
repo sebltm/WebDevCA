@@ -1,9 +1,11 @@
 <?php
+session_start();
+
 require_once("dbconnect.php");
 
-if(isset($_REQUEST['search_id'])) {
+if(isset($_POST['search_id']) && isset($_SESSION['username'])) {
 	if($stmt = $db->prepare("SELECT * FROM games WHERE id= ?")) {
-		$request = $_REQUEST['search_id'];
+		$request = $_POST['search_id'];
 		$stmt->bind_param("i", $request);
 		$stmt->bind_result($id, $name, $publisher, $releasedate, $stock, $sold);
 		$stmt->execute();
@@ -30,3 +32,6 @@ if(isset($_REQUEST['search_id'])) {
 		echo "Error while trying to connect to MySQL database: " . $db->connect_error;
 	}
 }
+
+$db->close();
+?>

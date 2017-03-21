@@ -12,9 +12,9 @@ if(isset($_SESSION["username"])) {
 		$stmt->execute();
 
 		if($stmt->fetch()) {
-			?><a href="#" onClick="fetchData(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
+			?><a href="#" onClick="fetchAndFormat(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
 			while($stmt->fetch()) {
-				?><a href="#" onClick="fetchData(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
+				?><a href="#" onClick="fetchAndFormat(<?php echo $id ?>)"><h2><?php echo $name?></h2></a><?php
 			}
 		}
 
@@ -27,7 +27,7 @@ if(isset($_SESSION["username"])) {
     $result_array = $db->query("SELECT id, name FROM games");
     if($result_array) {
       while($row = $result_array->fetch_row()) {
-        ?><a href="#" onClick="fetchData(<?php echo $row[0] ?>)"><h2><?php echo $row[1]?></h2></a><?php
+        ?><a href="#" onClick="fetchAndFormat(<?php echo $row[0] ?>)"><h2><?php echo $row[1]?></h2></a><?php
       }
     }
 

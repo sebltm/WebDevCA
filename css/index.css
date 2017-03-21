@@ -30,7 +30,7 @@ form {
 	justify-content: space-around;
 }
 
-input {
+input, button {
 	padding: 1%;
 	width: 100%;;
 	outline: none;
@@ -41,7 +41,7 @@ input {
 	border: none;
 	font-family: "San Fransisco Display Light";
 	border-bottom: 2px solid rgba(0, 128, 0, 1);
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow:  0 0px 10px 1px rgba(0, 0, 0, 0.8);
 }
 
 form div {
@@ -53,8 +53,29 @@ form div {
 
 #submitbutton, #signup {
 	flex: 0 1 45%;
+	font-size: 3em;
 	cursor: pointer;
+	text-align: center;
 	border: 1px solid black;
+	box-shadow: 0 1px 12px 1px rgba(0, 0, 0, 0.8);
+	
+	transition: .3s;
+}
+
+#submitbutton:hover, #signup:hover {
+	box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+#signup {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#signup a {
+	color: #000000;
+	text-decoration: none;
 }
 
 #tryagain {
