@@ -87,3 +87,29 @@ form div {
 #tryagain {
 	margin: 0;
 }
+
+@media (max-width: 1020px) {
+	body {
+		height: 100vh;
+	}
+	
+	h1 {
+		margin: 0;
+		font-size: 1.8em;
+	}
+	
+	form {
+		margin: auto;
+		width: 90%;
+		height: 80%;
+	}
+	
+	input {
+		flex: 0 1 10%;
+		font-size: 2em;
+	}
+	
+	#signup {
+		flex: 0 1 20%;
+	}
+}

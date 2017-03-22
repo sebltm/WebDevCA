@@ -166,7 +166,6 @@ article {
 
 @media (max-width: 1020px) {
 	body {
-		max-height: auto;
 		overflow-y: scroll;
 	}
 	
@@ -182,7 +181,10 @@ article {
 		border: none;
 	}
 	
-	#game {min-width: 30vw;}
+	#game {
+		min-width: 30vw;
+		width: 80vw;
+	}
 	
 	h1 {font-size: 1.8em}
 	
@@ -208,7 +210,5 @@ article {
 	}
 	
 	#remove {
-		display: inline-block;
-		margin: 0 auto;
 	}
 }

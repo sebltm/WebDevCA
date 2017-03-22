@@ -31,10 +31,8 @@ form {
 }
 
 input, button {
-	padding: 1%;
-	width: 100%;;
+	width: 100%;
 	outline: none;
-	margin: 1% 0 0;
 	display: block;
 	font-size: 3em;
 	background: #FFFFFF;
@@ -80,4 +78,36 @@ form div {
 
 #tryagain {
 	display: none;
+}
+
+@media (max-width: 1020px) {
+	body {
+		height: 100vh;
+	}
+	
+	h1 {
+		margin: 0;
+		font-size: 1.8em;
+	}
+	
+	form {
+		margin: auto;
+		width: 90%;
+		height: 80%;
+	}
+	
+	input {
+		flex: 0 1 10%;
+		font-size: 2em;
+	}
+	
+	form div {
+		flex: 0 1 30%;
+		flex-flow: column;
+		justify-content: space-around;
+	}
+	
+	#submitbutton, #signin {
+		flex: 0 1 40%;
+	}
 }
