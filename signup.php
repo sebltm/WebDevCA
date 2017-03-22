@@ -21,6 +21,7 @@
 			<input id="email" name="email" type="email" placeholder="Enter your email" required>
 			<input name="password" id="password" type="password" placeholder="Enter your password" required>
 			<input name="passwordcheck" id="passwordcheck" type="password" placeholder="Enter your password again" required>
+			<h2 id="tryagain"></h2>
 			<input id="signup" value="Sign-up" type="submit">
 		</form>
 

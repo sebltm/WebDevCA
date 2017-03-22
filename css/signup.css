@@ -34,7 +34,6 @@ input, button {
 	padding: 1%;
 	width: 100%;;
 	outline: none;
-	margin: 1% 0 0;
 	display: block;
 	font-size: 2em;
 	background: #FFFFFF;
@@ -86,5 +85,5 @@ form div {
 }
 
 #tryagain {
-	display: none;
+	margin: 0;
 }
