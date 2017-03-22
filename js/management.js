@@ -37,7 +37,7 @@ $(window).on("load", function() {
 	
 	$("#update").on("keyup input change", function() {
 		if(document.getElementById("update").value >= 0) {
-			var stockupdate = $.post("includes/stockupdate", {stock: document.getElementById("update").value, name: currentMovie.title});
+			var stockupdate = $.post("includes/stockupdate.php", {stock: document.getElementById("update").value, name: currentMovie.title});
 			
 			stockupdate.done(function() {
 				fetchData(currentMovie.id);
