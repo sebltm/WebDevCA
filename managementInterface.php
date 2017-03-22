@@ -44,7 +44,8 @@
 				
 				<article id="removegame">
 					<form id="removeGameForm" action="/sm807/coursework/includes/deletegame.php">
-						<input id="remove" type="submit" value="Delete the game. This action is irreversible.">
+						<input id="remove" type="submit" value="Delete.">
+						<h2>This action is irreversible and immediate.</h2>
 					</form>
 				</article>
 			</section>

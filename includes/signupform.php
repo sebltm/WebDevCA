@@ -4,7 +4,7 @@ session_start();
 require("dbconnect.php");
 
 if(isset($_POST["username"]) && !isset($_POST["password"])) {
-	$user = $_POST["username"];
+	$user = htmlspecialchars($_POST["username"]);
 	
 	$stmt = $db->prepare("SELECT username FROM users WHERE username = ?");
 	$stmt->bind_param("s", $user);
@@ -18,7 +18,7 @@ if(isset($_POST["username"]) && !isset($_POST["password"])) {
 }
 
 else if(isset($_POST["email"]) && !isset($_POST["password"])) {
-	$email = $_POST["email"];
+	$email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 	
 	$stmt = $db->prepare("SELECT email FROM users WHERE email = ?");
 	$stmt->bind_param("s", $email);
@@ -32,14 +32,14 @@ else if(isset($_POST["email"]) && !isset($_POST["password"])) {
 }
 
 else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["passwordCheck"]) && !(empty($_POST["username"]) && empty($_POST["email"]) && empty($_POST["password"]) && empty($_POST["passwordCheck"]))) {
-	//SANITIZE ALL INPUTS HERE
 	
-	$password = sha1($_POST["password"]);
-	$passCheck = sha1($_POST["passwordCheck"]);
+	$user = htmlspecialchars($_POST["username"]);
+	$email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+	
+	$password = sha1(htmlspecialchars($_POST["password"]));
+	$passCheck = sha1(htmlspecialchars($_POST["passwordCheck"]));
 	
 	if($password == $passCheck) {
-		$user = $_POST["username"];
-		$email = $_POST["email"];
 
 		$stmt = $db->prepare("INSERT INTO users (username, email, password) VALUES(?, ?, ?)");
 

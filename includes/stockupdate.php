@@ -4,7 +4,8 @@ session_start();
 require_once("dbconnect.php");
 
 if(isset($_POST['stock'])) {
-	$stock = (int) $_POST["stock"];
+	$stock = htmlspecialchars($_POST["stock"]);
+	$stock = intval($stock); //Ensures any input will be an integer
 
 	if(isset($_POST["name"]) && $stock>=0 && isset($_SESSION["username"])) {
 		

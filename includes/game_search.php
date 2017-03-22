@@ -4,9 +4,11 @@ session_start();
 require("dbconnect.php");
 
 if(isset($_SESSION["username"])) {
-	if(isset($_REQUEST['term'])) {
+	if(isset($_GET['term'])) {
+		$request = htmlspecialchars($_GET["term"]);
+		
 		$stmt = $db->prepare("SELECT id, name FROM games WHERE name LIKE ? ORDER BY name ASC");
-		$request = $_REQUEST['term']."%";
+		$request = $request."%";
 		$stmt->bind_param("s", $request);
 		$stmt->bind_result($id, $name);
 		$stmt->execute();
