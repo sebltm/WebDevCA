@@ -39,7 +39,7 @@
 
 				<article id="updatestock">
 					<h2>Update the amount of items in stock:</h2>
-					<input id="update" type="number">
+					<input id="update" type="number" max="65534">
 				</article>
 				
 				<article id="removegame">
