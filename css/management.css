@@ -6,8 +6,8 @@
   src: url("/sm807/coursework/SanFranciscoFont-master/SanFranciscoDisplay-Light.otf"); 
 }
 
-html {
-	font-family: "San Fransisco Display Light";
+html * {
+	font-family: "San Fransisco Display Light", sans-serif;
 }
 
 body {
@@ -26,14 +26,13 @@ h1 {
 	text-align: center;
 }
 
-input {
+input, button {
 	padding: 1%;
 	border: none;
 	outline: none;
 	font-size: 1.2em;
 	text-align: center;
 	background: #FFFFFF;
-	font-family: "San Fransisco Display Light";
 	border-bottom: 2px solid rgba(0, 128, 0, 1);
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -52,8 +51,8 @@ input {
 	width: 100%;
 	display: flex;
 	flex-flow: column;
-	justify-content: center;
 	align-content: center;
+	justify-content: center;
 }
 
 #pickgame #game {
@@ -73,8 +72,8 @@ input {
 #gameresult {
 	padding: 1%;
 	overflow-y: scroll;
-	max-height: 50vh;
-	height: 50vh;
+	max-height: 45vh;
+	height: 45vh;
 	width: 60%;
 	margin: auto;
 	
@@ -106,6 +105,17 @@ input {
 #gameresult::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
+}
+
+#addgame {
+	width: 60%;
+	margin: 1% auto;
+	font-size: 1.4em;
+}
+
+#addgame a {
+	color: #000000;
+	text-decoration: none;
 }
 
 section {

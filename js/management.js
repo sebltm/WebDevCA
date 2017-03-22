@@ -8,13 +8,19 @@ var currentMovie = {
 	publisher: undefined
 };
 
+var add_sold;
+
 $(window).on("load", function() {
 	results();
 
 	$('#game').on("keyup input focus", function() {
-		$("#gameinfo").hide();
-		$("#updatestock").hide();
-		$("#removegame").hide();
+		clearInterval(add_sold);
+		
+		setTimeout(function() {
+			$("#gameinfo").hide();
+			$("#updatestock").hide();
+			$("#removegame").hide();
+		}, 500);
 		
 		results();
 		
@@ -49,10 +55,13 @@ $(window).on("load", function() {
 		e.preventDefault();
 		
 		$.post("/sm807/coursework/includes/deletegame.php", {id: currentMovie.id}).done(function() {
-			$("#gameinfo").hide();
-			$("#updatestock").hide();
-			$("#removegame").hide();
-
+			
+			setTimeout(function() {
+				$("#gameinfo").hide();
+				$("#updatestock").hide();
+				$("#removegame").hide();
+			}, 500);
+			
 			results();
 
 			$("#game").css({
@@ -121,6 +130,7 @@ function fetchAndFormat(id) {
 }
 
 function fetchData(id) {
+		
 	if(req) {
 		req.abort();
 	}
@@ -140,6 +150,23 @@ function fetchData(id) {
 		document.getElementById("publisher").innerHTML = "Publisher: "+data.publisher;
 		
 		document.getElementById("update").value = data.stock;
+		
+		var timepersale = Math.floor((Math.random() * 1500) + 750);
+		var amountpersale = Math.floor((Math.random() * 10) + 1);
+		
+		setTimeout(function() {
+			if(currentMovie.stock > 0) {
+				currentMovie.sold += amountpersale;
+				currentMovie.stock -= amountpersale;
+
+				var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: currentMovie.stock, sold:currentMovie.sold, name: currentMovie.title});
+
+				stockupdate.done(function() {
+					fetchData(currentMovie.id);
+				});
+			}
+			
+		}, timepersale);
 	});
 }
 
@@ -164,8 +191,9 @@ function results() {
 		resultDropdown.empty();
 	}
 	
-	
-	emptyInfo();
+	setTimeout(function() {
+		emptyInfo();
+	}, 500);
 }
 
 function emptyInfo() {

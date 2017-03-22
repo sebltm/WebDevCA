@@ -20,5 +20,18 @@ if(isset($_POST['stock'])) {
 	}
 }
 
+if(isset($_POST['sold'])) {
+	$sold = htmlspecialchars($_POST["sold"]);
+	$sold = intval($sold); //Ensures any input will be an integer
+
+	if(isset($_POST["name"]) && $sold>=0 && isset($_SESSION["username"])) {
+		
+		if($stmt = $db->prepare("UPDATE games SET sold = ? WHERE name= ?")) {
+			$stmt->bind_param("is", $sold, $_POST["name"]);
+			$stmt->execute();
+		}
+	}
+}
+
 $db->close();
 ?>

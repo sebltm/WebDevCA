@@ -6,8 +6,8 @@
   src: url("/sm807/coursework/SanFranciscoFont-master/SanFranciscoDisplay-Light.otf"); 
 }
 
-html {
-	font-family: "San Fransisco Display Light";
+html * {
+	font-family: "San Fransisco Display Light", sans-serif;
 }
 
 body {
@@ -37,7 +37,6 @@ input, button {
 	font-size: 3em;
 	background: #FFFFFF;
 	border: none;
-	font-family: "San Fransisco Display Light";
 	border-bottom: 2px solid rgba(0, 128, 0, 1);
 	box-shadow:  0 0px 10px 1px rgba(0, 0, 0, 0.8);
 }

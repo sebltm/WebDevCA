@@ -16,7 +16,7 @@
 
 		<h1 role="">Game&amp;Co Management Sign-Up</h1>
 
-		<form action="includes/signup.php" id="signupform" role="form" method="post">
+		<form action="/sm807/coursework/signup.php" id="signupform" role="form" method="post">
 			<input id="username" name="username" type="text" placeholder="Enter your username" required>
 			<input id="email" name="email" type="email" placeholder="Enter your email" required>
 			<input name="password" id="password" type="password" placeholder="Enter your password" required>
