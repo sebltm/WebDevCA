@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+  font-family: "San Fransisco Display Light";
+  src: url("/sm807/coursework/SanFranciscoFont-master/SanFranciscoDisplay-Light.otf"); 
+}
+
+html {
+	font-family: "San Fransisco Display Light";
+}
+
+body {
+	margin: 0;
+}
+
+h1 {
+	width: 100%;
+	font-size: 3em;
+	text-align: center;
+}
+
+form {
+	margin: auto;
+	width: 60vw;
+	height: 80vh;
+	display: flex;
+	align-items: center;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+}
+
+input, button {
+	padding: 1%;
+	width: 100%;;
+	outline: none;
+	margin: 1% 0 0;
+	display: block;
+	font-size: 2em;
+	background: #FFFFFF;
+	border: none;
+	font-family: "San Fransisco Display Light";
+	border-bottom: 2px solid rgba(0, 128, 0, 1);
+	box-shadow:  0 0px 10px 1px rgba(0, 0, 0, 0.8);
+}
+
+form div {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+#submitbutton, #signup {
+	font-size: 3em;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid black;
+	box-shadow: 0 1px 12px 1px rgba(0, 0, 0, 0.8);
+	
+	transition: .3s;
+}
+
+#submitbutton:hover, #signup:hover {
+	box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+#signup {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#signup a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#password {
+	border-bottom: 2px solid red;
+}
+
+#passwordcheck {
+	border-bottom: 2px solid red;
+}
+
+#tryagain {
+	display: none;
+}

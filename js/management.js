@@ -49,7 +49,27 @@ $(window).on("load", function() {
 		e.preventDefault();
 		
 		$.post("/sm807/coursework/includes/deletegame.php", {id: currentMovie.id}).done(function() {
+			$("#gameinfo").hide();
+			$("#updatestock").hide();
+			$("#removegame").hide();
+
 			results();
+
+			$("#game").css({
+				"width": "60vw",
+				"font-size": "1.8em",
+				"border-bottom": "2px solid rgba(0, 128, 0, 1)",
+				"border-radius": "0px",
+				"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+			});
+
+			$("#game").hover(
+			function() {
+				this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
+				this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+			});
+
+			document.getElementById("game").setAttribute("placeholder", "Name of video game");
 		});
 		
 		return false;

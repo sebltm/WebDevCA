@@ -43,7 +43,7 @@
 				</article>
 				
 				<article id="removegame">
-					<form id="removeGameForm" action="deletegame.php">
+					<form id="removeGameForm" action="/sm807/coursework/includes/deletegame.php">
 						<input id="remove" type="submit" value="Delete the game. This action is irreversible.">
 					</form>
 				</article>
