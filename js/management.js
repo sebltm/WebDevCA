@@ -92,7 +92,7 @@ function showSearch() {
 
 function fetchAndFormat(id) {
     $("section").css({"margin": "2% 0 0",
-    "height": "35vh"});
+    "height": "40vh"});
     
 	$("#gameinfo").css({
 		"display": "flex"
