@@ -41,6 +41,18 @@ input, button {
 	box-shadow:  0 0px 10px 1px rgba(0, 0, 0, 0.8);
 }
 
+@-moz-document url-prefix() { /*Percentage padding for inputs and buttons doesn't work in moz*/
+	input, button {
+		padding: 14px 20px;
+	}
+}
+
+@supports (-ms-ime-align:auto) { /*Same for edge*/
+    input, button {
+		padding: 14px 20px;
+	}
+}
+
 form div {
 	width: 100%;
 	display: flex;
