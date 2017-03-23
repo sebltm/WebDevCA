@@ -26,7 +26,7 @@
 			<article id="pickgame">
 				<input id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
 				<div id="gameresult"></div>
-				<button id="addgame" type="button"><a href="/sm807/coursework/addgame.php">Add a new game</a></button>
+				<a class="button" id="addgame" href="/sm807/coursework/addgame.php">Add a new game</a>
 			</article>
 
 			<section>
