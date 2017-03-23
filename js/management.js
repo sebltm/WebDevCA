@@ -30,7 +30,7 @@ $(window).on("load", function () {
 		showSearch();
 	});
 	
-	$("#update").on("click keydown keyup", function () {
+	$("#update").on("click keydown keyup focus", function () {
         //Couldn't use on change, input or focus because IE was throwing a fuss
 		clearInterval(sales);
 		
