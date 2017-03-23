@@ -22,9 +22,9 @@ h1 {
 input, button, .button {
 	padding: 1%;
 	border: none;
-    border-radius: 0px;
 	outline: none;
 	font-size: 120%;
+    border-radius: 0px;
 	text-align: center;
 	background: #FFFFFF;
 	border-bottom: 2px solid rgba(0, 128, 0, 1);
