@@ -38,6 +38,12 @@ input, button {
 	}
 }
 
+@supports (-ms-ime-align:auto) { /*Same for edge*/
+    input, button {
+		padding: 14px 20px;
+	}
+}
+
 .result {
 	color: #000000;
 	text-decoration: none;
