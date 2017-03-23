@@ -54,14 +54,17 @@ input, button {
 }
 
 #pickgame {
+    position: relative;
 	display: flex;
 	flex-flow: column;
 	align-items: center;
 }
 
 #pickgame #game {
+    z-index: 2;
 	width: 60%;
 	font-size: 180%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.4);
 	
 	transition: .5s;
 }
@@ -72,12 +75,14 @@ input, button {
 }
 
 #gameresult {
+    position: relative;
 	padding: 1%;
 	overflow-y: scroll;
 	max-height: 45vh;
 	height: 45vh;
 	width: 60%;
 	margin: auto;
+    border-bottom: 1px solid black;
 	
 	transition: .5s;
 }
