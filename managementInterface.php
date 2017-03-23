@@ -52,6 +52,7 @@
 						<h2>This action is irreversible and immediate.</h2>
 					</form>
 				</article>
+                
 			</section>
 		<?php } else { ?>
 			<h2>Please <a href="index.php">sign-in</a></h2>

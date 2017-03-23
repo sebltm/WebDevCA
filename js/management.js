@@ -31,7 +31,6 @@ $(window).on("load", function () {
 	});
 	
 	$("#update").on("focus", function () {
-        //Couldn't use on change, input or focus because IE was throwing a fuss
 		clearInterval(sales);
 	});
     
