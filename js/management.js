@@ -30,18 +30,20 @@ $(window).on("load", function () {
 		showSearch();
 	});
 	
-	$("#update").on("click keydown keyup focus", function () {
+	$("#update").on("focus", function () {
         //Couldn't use on change, input or focus because IE was throwing a fuss
 		clearInterval(sales);
-		
-		if (document.getElementById("update").value >= 0) {
+	});
+    
+    $("#update").on("input change", function () {
+        if (document.getElementById("update").value >= 0) {
 			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: document.getElementById("update").value, name: currentMovie.title});
 			
 			stockupdate.done(function () {
 				fetchData(currentMovie.id);
 			});
 		}
-	});
+    })
 	
 	$("#removeGameForm").submit(function (e) {
 		e.preventDefault();
