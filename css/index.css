@@ -119,7 +119,7 @@ form div {
 	}
 	
 	form div {
-		flex: 0 1 30%;
+		flex: 0 1 40%;
 		flex-flow: column;
 		justify-content: space-around;
 	}
