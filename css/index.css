@@ -97,6 +97,8 @@ form div {
 	display: none;
 }
 
+-webkit-appearance: none;
+
 @media (max-width: 1020px) {
 	body {
 		height: 100vh;
