@@ -16,6 +16,7 @@ $(window).on("load", function () {
 	results();
 
 	$('#game').on("click keydown keyup", function () {
+        //Couldn't use on change, input or focus because IE was throwing a fuss
 		clearInterval(sales);
 		
 		setTimeout(function () {
@@ -30,6 +31,7 @@ $(window).on("load", function () {
 	});
 	
 	$("#update").on("click keydown keyup", function () {
+        //Couldn't use on change, input or focus because IE was throwing a fuss
 		clearInterval(sales);
 		
 		if (document.getElementById("update").value >= 0) {
