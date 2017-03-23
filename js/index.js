@@ -25,13 +25,13 @@ $(window).on("load", function() {
             data: postData,
             success: function(response) {
                 if(response === 'true') {
-					var loapage = $.get("managementInterface.php");
-                    
-                    $.when(loapage).done(function (data) {
-                        history.pushState("index.php", "Management Interface", "managementInterface.php");
+                    $.get("managementInterface.php").done(function (data) {
+                        console.log(data);
+                        
                         document.open();
                         document.write(data);
                         document.close();
+                        history.pushState("index.php", "Management Interface", "managementInterface.php");
                     });
 				}
 				
