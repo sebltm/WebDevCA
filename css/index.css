@@ -62,15 +62,14 @@ input, button, .button, #bounce {
 }
 
 form div {
-	width: 100%;
+	width: 60vw;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 }
 
 #submitbutton, #signup, #bounce {
-	flex: 1;
-    max-width: 40%;
+	flex: 0 0 40%;
 	font-size: 3em;
 	cursor: pointer;
 	text-align: center;
