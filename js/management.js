@@ -27,6 +27,7 @@ $(window).on("load", function () {
 		results();
 		
 		$("#game").css({
+            "border": "none",
 			"width": "60vw",
 			"font-size": "1.8em",
 			"border-bottom": "2px solid rgba(0, 128, 0, 1)",
