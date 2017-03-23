@@ -15,7 +15,7 @@ var emptyInfo;
 $(window).on("load", function () {
 	results();
 
-	$('#game').on("keyup input focus", function () {
+	$('#game').on("click keydown keyup", function () {
 		clearInterval(sales);
 		
 		setTimeout(function () {
@@ -29,7 +29,7 @@ $(window).on("load", function () {
 		showSearch();
 	});
 	
-	$("#update").on("keyup input change", function () {
+	$("#update").on("click keydown keyup", function () {
 		clearInterval(sales);
 		
 		if (document.getElementById("update").value >= 0) {
@@ -173,6 +173,7 @@ function fetchData(id) {
 
 function results() {
 	"use strict";
+    
 	var inputVal = $('#game').val();
 	$("#gameresult").css({"max-height" : "50vh", "overflow-y": "scroll", "padding": "1%"});
 
