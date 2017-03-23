@@ -142,7 +142,7 @@ function fetchData(id) {
 	}
 	
 	var req = $.post("/sm807/coursework/includes/game_info.php", {search_id: id}).done(function(data) {
-		data = JSON.parse(data);
+data = JSON.parse(data);
 		
 		currentMovie.id = data.id;
 		currentMovie.title = data.name;
