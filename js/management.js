@@ -77,7 +77,8 @@ function showSearch() {
         this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
 		this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 	});
-
+    
+    $("#gameresult").css({"border-bottom": "1px solid rgba(0, 0, 0, 1)"});
 	document.getElementById("game").setAttribute("placeholder", "Name of video game");
 }
 
@@ -96,7 +97,7 @@ function fetchAndFormat(id) {
 
 	document.getElementById("game").value = "";
 	
-	$("#gameresult").css({ "max-height" : "0", "overflow-y": "hidden", "padding": "0%" });
+	$("#gameresult").css({ "max-height" : "0", "overflow-y": "hidden", "padding": "0%", "border-bottom": "1px solid rgba(0, 0, 0, 0)"});
 	
 	document.getElementById("game").setAttribute("placeholder", "Search");
 	
@@ -105,8 +106,8 @@ function fetchAndFormat(id) {
 		"border": "1px solid black",
 		"box-shadow": "0 0px 0px 0 rgba(0, 0, 0, 0.0)"
 	});
-	
-	$("#game").hover(
+    
+    $("#game").hover(
 		function () {
 			this.style.borderBottom = "2px solid rgb(0, 128, 0)";
 			this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";

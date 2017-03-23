@@ -54,10 +54,13 @@ input, button {
 }
 
 #pickgame {
+    width: 100%;
     position: relative;
 	display: flex;
 	flex-flow: column;
 	align-items: center;
+    
+    transition: .5s;
 }
 
 #pickgame #game {
@@ -84,7 +87,7 @@ input, button {
 	margin: auto;
     border-bottom: 1px solid black;
 	
-	transition: .5s;
+	transition: .4s ease-in-out;
 }
 
 #gameresult h2 {
