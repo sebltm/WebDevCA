@@ -115,6 +115,14 @@ input, button {
 	font-size: 1.4em;
 }
 
+@-moz-document url-prefix() { /*Percentage padding for inputs and buttons doesn't work in moz*/
+	#addgame {
+        width: 60%;
+        margin: 20px auto;
+        font-size: 1.4em;
+    }
+}
+
 #addgame a {
 	color: #000000;
 	text-decoration: none;
