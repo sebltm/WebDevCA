@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+  font-family: "San Fransisco Display Light";
+  src: url("/sm807/coursework/SanFranciscoFont-master/SanFranciscoDisplay-Light.otf"); 
+}
+
+html * {
+	font-family: "San Fransisco Display Light", sans-serif;
+}
+
+body {
+	margin: 0;
+}
+
+h1 {
+	width: 100%;
+	font-size: 3em;
+	text-align: center;
+}
+
+form {
+	margin: auto;
+	width: 60vw;
+	height: 80vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+input, button {
+	width: 100%;
+	outline: none;
+	display: block;
+	font-size: 3em;
+	background: #FFFFFF;
+	border: none;
+	border-bottom: 2px solid rgba(0, 128, 0, 1);
+	box-shadow:  0 0px 10px 1px rgba(0, 0, 0, 0.8);
+}
+
+@-moz-document url-prefix() { /*Percentage padding for inputs and buttons doesn't work in moz*/
+	input, button {
+		padding: 14px 20px;
+	}
+}
+
+@supports (-ms-ime-align:auto) { /*Same for edge*/
+    input, button {
+		padding: 14px 20px;
+	}
+}
+
+form div {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+#submitbutton, #signup {
+	flex: 0 1 45%;
+	font-size: 3em;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid black;
+	box-shadow: 0 1px 12px 1px rgba(0, 0, 0, 0.8);
+	
+	transition: .3s;
+}
+
+#submitbutton:hover, #signup:hover {
+	box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+#signup {
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#signup a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#tryagain {
+	display: none;
+}
+
+@media (max-width: 1020px) {
+	body {
+		height: 100vh;
+	}
+	
+	h1 {
+		margin: 0;
+		font-size: 1.8em;
+	}
+	
+	form {
+		margin: auto;
+		width: 90%;
+		height: 80%;
+	}
+	
+	input {
+		flex: 0 1 10%;
+		font-size: 2em;
+	}
+	
+	form div {
+		flex: 0 1 30%;
+		flex-flow: column;
+		justify-content: space-around;
+	}
+	
+	#submitbutton, #signin {
+		flex: 0 1 40%;
+	}
+}

@@ -6,7 +6,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="css/index.css" type="text/css" rel="stylesheet"></style>
+		<link href="css/index.css" type="text/css" rel="stylesheet">
+        <!--[if IE]>
+          <link rel="stylesheet" type="text/css" href="indexie.css" />
+        <![endif]-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="/sm807/coursework/js/index.js"></script>
 		<title>Game&amp;Co</title>
