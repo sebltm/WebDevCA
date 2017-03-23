@@ -38,13 +38,13 @@ input, button, .button {
 }
 
 @-moz-document url-prefix() { /*Percentage padding for inputs and buttons doesn't work in moz*/
-	input, button {
+	input, button, .button {
 		padding: 14px 20px;
 	}
 }
 
 @supports (-ms-ime-align:auto) { /*Same for edge*/
-    input, button {
+    input, button, .button {
 		padding: 14px 20px;
 	}
 }
