@@ -43,7 +43,7 @@ $(window).on("load", function () {
 				fetchData(currentMovie.id);
 			});
 		}
-    })
+    });
 	
 	$("#removeGameForm").submit(function (e) {
 		e.preventDefault();
@@ -67,6 +67,7 @@ $(window).on("load", function () {
 	
 });
 
+
 function showSearch() {
     $("#game").css({
         "border": "none",
@@ -85,6 +86,7 @@ function showSearch() {
     $("#gameresult").css({"border-bottom": "1px solid rgba(0, 0, 0, 1)", "max-height": "45vh"});
 	document.getElementById("game").setAttribute("placeholder", "Name of video game");
 }
+
 
 function fetchAndFormat(id) {
 	$("#gameinfo").css({
@@ -124,6 +126,7 @@ function fetchAndFormat(id) {
 
 	fetchData(id);
 }
+
 
 function fetchData(id) {
 		
@@ -175,6 +178,7 @@ function fetchData(id) {
 	});
 }
 
+
 function results() {
 	"use strict";
     
@@ -195,6 +199,7 @@ function results() {
 		emptyInfo();
 	}, 500);
 }
+
 
 function emptyInfo() {
 	document.getElementById("title").innerHTML = "";
