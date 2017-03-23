@@ -32,10 +32,13 @@
 			<section>
 
 				<article id="gameinfo">
-					<h2 id="title"></h2>
-					<h3 id="stock"></h3>
-					<h3 id="sold"></h3>
-					<h3 id="publisher"></h3>
+					<img id="gameimage" src="" />
+					<div id="info">
+						<h2 id="title"></h2>
+						<h3 id="stock"></h3>
+						<h3 id="sold"></h3>
+						<h3 id="publisher"></h3>
+					</div>
 				</article>
 
 				<article id="updatestock">

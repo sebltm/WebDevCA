@@ -44,12 +44,8 @@ input, button {
 	box-shadow:  0 0px 10px 1px rgba(0, 0, 0, 0.8);
 }
 
-
-#signup {
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: center;
+#datelabel {
+	font-size: 2em;
 }
 
 #submit {

@@ -9,13 +9,14 @@ if(isset($_POST['search_id']) && isset($_SESSION['username'])) {
 	
 	if($stmt = $db->prepare("SELECT * FROM games WHERE id= ?")) {
 		$stmt->bind_param("i", $request);
-		$stmt->bind_result($id, $name, $publisher, $releasedate, $stock, $sold);
+		$stmt->bind_result($id, $name, $publisher, $url, $releasedate, $stock, $sold);
 		$stmt->execute();
 		if($stmt->fetch()) {
 			$result_array = array(
 				"id" => $id,
 				"name" => $name,
 				"publisher" => $publisher,
+				"url" => $url,
 				"releasedate" => $releasedate,
 				"stock" => $stock,
 				"sold" => $sold

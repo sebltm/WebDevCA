@@ -26,7 +26,7 @@ if(isset($_SESSION["username"])) {
 	}
 
 	else if(isset($_REQUEST["all"]) && $_REQUEST["all"] == 1) {
-    $result_array = $db->query("SELECT id, name FROM games");
+    $result_array = $db->query("SELECT id, name FROM games ORDER BY name ASC");
     if($result_array) {
       while($row = $result_array->fetch_row()) {
         ?><a href="#" onClick="fetchAndFormat(<?php echo $row[0] ?>)"><h2><?php echo $row[1]?></h2></a><?php

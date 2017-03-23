@@ -8,13 +8,13 @@ var currentMovie = {
 	publisher: undefined
 };
 
-var add_sold;
+var sales;
 
 $(window).on("load", function() {
 	results();
 
 	$('#game').on("keyup input focus", function() {
-		clearInterval(add_sold);
+		clearInterval(sales);
 		
 		setTimeout(function() {
 			$("#gameinfo").hide();
@@ -42,6 +42,8 @@ $(window).on("load", function() {
 	});
 	
 	$("#update").on("keyup input change", function() {
+		clearInterval(sales);
+		
 		if(document.getElementById("update").value >= 0) {
 			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: document.getElementById("update").value, name: currentMovie.title});
 			
@@ -131,6 +133,10 @@ function fetchAndFormat(id) {
 
 function fetchData(id) {
 		
+	if(sales) {
+		clearTimeout(sales);
+	}
+	
 	if(req) {
 		req.abort();
 	}
@@ -143,7 +149,9 @@ function fetchData(id) {
 		currentMovie.stock = data.stock;
 		currentMovie.sold = data.sold;
 		currentMovie.publisher = data.publisher;
+		currentMovie.image = data.url;
 		
+		document.getElementById("gameimage").setAttribute("src", data.url);
 		document.getElementById("title").innerHTML = data.name;
 		document.getElementById("stock").innerHTML = "Stock: "+data.stock;
 		document.getElementById("sold").innerHTML = "Sold: "+data.sold;
@@ -154,7 +162,7 @@ function fetchData(id) {
 		var timepersale = Math.floor((Math.random() * 1500) + 750);
 		var amountpersale = Math.floor((Math.random() * 10) + 1);
 		
-		setTimeout(function() {
+		sales = setTimeout(function() {
 			if(currentMovie.stock > 0) {
 				currentMovie.sold += amountpersale;
 				currentMovie.stock -= amountpersale;
@@ -201,6 +209,7 @@ function emptyInfo() {
 	document.getElementById("stock").innerHTML = "";
 	document.getElementById("sold").innerHTML = "";
 	document.getElementById("publisher").innerHTML = "";
+	document.getElementById("gameimage").setAttribute("src", "");
 	
 	currentMovie.id = null;
 	currentMovie.title = null;
