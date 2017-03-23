@@ -33,7 +33,10 @@ $(window).on("load", function () {
 	});
 	
 	$("#update").on("focus", function () {
+        console.log(sales);
 		clearInterval(sales);
+        clearTimeout(sales);
+        console.log(sales);
 	});
     
     $("#update").on("input change", function () {

@@ -30,7 +30,7 @@ form {
 	justify-content: space-around;
 }
 
-input, button, .button {
+input, button, .button, #bounce {
 	width: 100%;
 	border: none;
 	outline: none;
@@ -68,7 +68,7 @@ form div {
 	justify-content: space-between;
 }
 
-#submitbutton, #signup {
+#submitbutton, #signup, #bounce {
 	flex: 1;
     max-width: 40%;
 	font-size: 3em;
@@ -78,6 +78,29 @@ form div {
 	box-shadow: 0 1px 12px 1px rgba(0, 0, 0, 0.8);
 	
 	transition: .3s;
+}
+
+#bounce {
+    display: none;
+    justify-content: space-around;
+}
+
+#bounce.bouncing #bouncy1 {
+    animation: bouncing 1s infinite 0s ease-in-out;
+}
+
+#bounce.bouncing #bouncy2 {
+    animation: bouncing 1s infinite 0.1s ease-in-out;
+}
+
+#bounce.bouncing #bouncy3 {
+    animation: bouncing 1s infinite 0.2s ease-in-out;
+}
+
+#bounce div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 #submitbutton:hover, #signup:hover {
@@ -98,6 +121,16 @@ form div {
 
 #tryagain {
 	display: none;
+}
+
+@keyframes bouncing {
+    0% {transform: translateY(0%)}
+    15% {transform: translateY(-100%)}
+    30% {transform: translateY(0%)}
+    45% {transform: translateY(-70%)}
+    55% {transform: translateY(0%)}
+    60% {transform: translateY(-50%)}
+    70% {transform: translateY(0%)}
 }
 
 @media (max-width: 1020px) {

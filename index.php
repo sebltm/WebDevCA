@@ -19,11 +19,18 @@
 
 		<h1 role="">Game&amp;Co Management Log-In</h1>
 
-		<form action="includes/login.php" id="signin" role="form" method="post">
+		<form action="includes/loginnojs.php" id="signin" role="form" method="post">
 			<input id="username" name="username" type="text" placeholder="Enter your email or your username">
 			<input name="password" id="password" type="password" placeholder="Password">
 			<div>
 				<input id="submitbutton" type="submit" value="Login">
+                <div id="bounce" class="bouncing">
+                    <svg height="70px" width="100%">
+                        <circle id="bouncy1" cx="25%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+                        <circle id="bouncy2" cx="50%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+                        <circle id="bouncy3" cx="75%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+                    </svg>
+                </div>
                 <a id="signup" class="button" href="signup.php">Sign-up</a>
 			</div>
 			<h2 id="tryagain"></h2>

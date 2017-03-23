@@ -78,6 +78,25 @@ input, button, .button {
 	transition: .5s;
 }
 
+#bounce {
+    margin: auto;
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#bounce.bouncing #bouncy1 {
+    animation: bouncing 1s infinite 0s ease-in-out;
+}
+
+#bounce.bouncing #bouncy2 {
+    animation: bouncing 1s infinite 0.1s ease-in-out;
+}
+
+#bounce.bouncing #bouncy3 {
+    animation: bouncing 1s infinite 0.2s ease-in-out;
+}
+
 #game:hover {
 	border-bottom: 2px solid rgb(0, 128, 0);
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -221,6 +240,16 @@ section article h2 {
 	cursor: pointer;
 	font-weight: bold;
 	border: 5px solid red;
+}
+
+@keyframes bouncing {
+    0% {transform: translateY(0%)}
+    15% {transform: translateY(-100%)}
+    30% {transform: translateY(0%)}
+    45% {transform: translateY(-70%)}
+    55% {transform: translateY(0%)}
+    60% {transform: translateY(-50%)}
+    70% {transform: translateY(0%)}
 }
 
 @media (max-width: 1020px) {

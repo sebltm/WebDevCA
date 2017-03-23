@@ -7,7 +7,10 @@ $(window).on("load", function() {
 	$("#signin").submit(function(event) {
 		//Catch the submit action
 		event.preventDefault();
-		
+        
+        $("#submitbutton").hide();
+		$("#bounce").css({"display": "flex"});
+        
 		//Catch all the fields in the form
 		var postData = {};
 		var inputs = this.getElementsByTagName("input");
@@ -21,9 +24,15 @@ $(window).on("load", function() {
             url: "includes/login.php",
             data: postData,
             success: function(response) {
-				console.log(response);
-                if(response === "true") {
-					window.location.assign("managementInterface.php");
+                if(response === 'true') {
+					var loapage = $.get("managementInterface.php");
+                    
+                    $.when(loapage).done(function (data) {
+                        history.pushState("index.php", "Management Interface", "managementInterface.php");
+                        document.open();
+                        document.write(data);
+                        document.close();
+                    });
 				}
 				
 				else {

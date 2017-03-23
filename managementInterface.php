@@ -25,7 +25,16 @@
 		
 			<article id="pickgame">
 				<input id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
-				<div id="gameresult"></div>
+				<div id="gameresult">
+                    <h2 id="nojava">Please enable JavaScript, I need it to work...</h2>
+                    <div id="bounce" class="bouncing">
+                        <svg height="70px" width="100%">
+                            <circle id="bouncy1" cx="25%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+                            <circle id="bouncy2" cx="50%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+                            <circle id="bouncy3" cx="75%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+                        </svg>
+                    </div>
+                </div>
 				<a class="button" id="addgame" href="/sm807/coursework/addgame.php">Add a new game</a>
 			</article>
 
@@ -58,4 +67,8 @@
 			<h2>Please <a href="index.php">sign-in</a></h2>
 		<?php } ?>
 	</body>
+    
+    <script>
+        document.getElementById("nojava").style.display = "none";
+    </script>
 </html>
