@@ -29,9 +29,9 @@
                     <h2 id="nojava">Please enable JavaScript, I need it to work...</h2>
                     <div id="bounce" class="bouncing">
                         <svg height="70px" width="100%">
-                            <circle id="bouncy1" cx="25%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
-                            <circle id="bouncy2" cx="50%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
-                            <circle id="bouncy3" cx="75%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+                            <circle id="bouncy1" cx="25%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black"></circle>
+                            <circle id="bouncy2" cx="50%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black"></circle>
+                            <circle id="bouncy3" cx="75%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black"></circle>
                         </svg>
                     </div>
                 </div>

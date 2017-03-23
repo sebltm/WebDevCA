@@ -26,12 +26,11 @@ $(window).on("load", function() {
             success: function(response) {
                 if(response === 'true') {
                     $.get("managementInterface.php").done(function (data) {
-                        console.log(data);
-                        
-                        document.open();
-                        document.write(data);
-                        document.close();
                         history.pushState("index.php", "Management Interface", "managementInterface.php");
+                        
+                        window.document.open();
+                        window.document.write(data);
+                        window.document.close();
                     });
 				}
 				
