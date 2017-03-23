@@ -123,6 +123,14 @@ input, button {
     }
 }
 
+@supports (-ms-ime-align:auto) { /*Same for edge*/
+    #addgame {
+        width: 60%;
+        margin: 20px auto;
+        font-size: 1.4em;
+    }
+}
+
 #addgame a {
 	color: #000000;
 	text-decoration: none;

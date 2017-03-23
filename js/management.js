@@ -1,5 +1,3 @@
-var resultDropdown = $("#gameresult");
-
 var currentMovie = {
 	id: undefined,
 	title: undefined,
@@ -8,15 +6,19 @@ var currentMovie = {
 	publisher: undefined
 };
 
+var req;
 var sales;
+var results;
+var fetchData;
+var emptyInfo;
 
-$(window).on("load", function() {
+$(window).on("load", function () {
 	results();
 
-	$('#game').on("keyup input focus", function() {
+	$('#game').on("keyup input focus", function () {
 		clearInterval(sales);
 		
-		setTimeout(function() {
+		setTimeout(function () {
 			$("#gameinfo").hide();
 			$("#updatestock").hide();
 			$("#removegame").hide();
@@ -32,8 +34,7 @@ $(window).on("load", function() {
 			"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 		});
 		
-		$("#game").hover(
-		function() {
+		$("#game").hover(function () {
 			this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
 			this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 		});
@@ -41,24 +42,24 @@ $(window).on("load", function() {
 		document.getElementById("game").setAttribute("placeholder", "Name of video game");
 	});
 	
-	$("#update").on("keyup input change", function() {
+	$("#update").on("keyup input change", function () {
 		clearInterval(sales);
 		
-		if(document.getElementById("update").value >= 0) {
+		if (document.getElementById("update").value >= 0) {
 			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: document.getElementById("update").value, name: currentMovie.title});
 			
-			stockupdate.done(function() {
+			stockupdate.done(function () {
 				fetchData(currentMovie.id);
 			});
 		}
 	});
 	
-	$("#removeGameForm").submit(function(e) {
+	$("#removeGameForm").submit(function (e) {
 		e.preventDefault();
 		
-		$.post("/sm807/coursework/includes/deletegame.php", {id: currentMovie.id}).done(function() {
+		$.post("/sm807/coursework/includes/deletegame.php", {id: currentMovie.id}).done(function () {
 			
-			setTimeout(function() {
+			setTimeout(function () {
 				$("#gameinfo").hide();
 				$("#updatestock").hide();
 				$("#removegame").hide();
@@ -74,8 +75,7 @@ $(window).on("load", function() {
 				"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
 			});
 
-			$("#game").hover(
-			function() {
+			$("#game").hover(function () {
 				this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
 				this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 			});
@@ -103,11 +103,7 @@ function fetchAndFormat(id) {
 
 	document.getElementById("game").value = "";
 	
-	$("#gameresult").css({
-			"max-height" : "0",
-			"overflow-y": "hidden", 
-			"padding": "0%"
-	});
+	$("#gameresult").css({ "max-height" : "0", "overflow-y": "hidden", "padding": "0%" });
 	
 	document.getElementById("game").setAttribute("placeholder", "Search");
 	
@@ -118,12 +114,12 @@ function fetchAndFormat(id) {
 	});
 	
 	$("#game").hover(
-		function() {
+		function () {
 			this.style.borderBottom = "2px solid rgb(0, 128, 0)";
 			this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 		},
 		
-		function() {
+		function () {
 			this.style.borderBottom = "1px solid black";
 			this.style.boxShadow = "0 0px 0px 0 rgba(0, 0, 0, 0.0)";
 	});
@@ -133,17 +129,17 @@ function fetchAndFormat(id) {
 
 function fetchData(id) {
 		
-	if(sales) {
+	if (sales) {
 		clearTimeout(sales);
 	}
 	
-	if(req) {
+	if (req) {
 		req.abort();
 	}
 	
-	var req = $.post("/sm807/coursework/includes/game_info.php", {search_id: id});
+	req = $.post("/sm807/coursework/includes/game_info.php", {search_id: id});
 	
-	req.done(function(data) {
+	req.done(function (data) {
 		data = JSON.parse(data);
 		
 		currentMovie.id = data.id;
@@ -155,23 +151,24 @@ function fetchData(id) {
 		
 		document.getElementById("gameimage").setAttribute("src", data.url);
 		document.getElementById("title").innerHTML = data.name;
-		document.getElementById("stock").innerHTML = "Stock: "+data.stock;
-		document.getElementById("sold").innerHTML = "Sold: "+data.sold;
-		document.getElementById("publisher").innerHTML = "Publisher: "+data.publisher;
+		document.getElementById("stock").innerHTML = "Stock: " + data.stock;
+		document.getElementById("sold").innerHTML = "Sold: " + data.sold;
+		document.getElementById("publisher").innerHTML = "Publisher: " + data.publisher;
 		
 		document.getElementById("update").value = data.stock;
 		
-		var timepersale = Math.floor((Math.random() * 1500) + 750);
-		var amountpersale = Math.floor((Math.random() * 10) + 1);
+		var timepersale, amountpersale;
+        timepersale = Math.floor((Math.random() * 1500) + 750);
+		amountpersale = Math.floor((Math.random() * 10) + 1);
 		
-		sales = setTimeout(function() {
-			if(currentMovie.stock > 0) {
+		sales = setTimeout(function () {
+			if (currentMovie.stock > 0) {
 				currentMovie.sold += amountpersale;
 				currentMovie.stock -= amountpersale;
 
-				var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: currentMovie.stock, sold:currentMovie.sold, name: currentMovie.title});
+				var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: currentMovie.stock, sold: currentMovie.sold, name: currentMovie.title});
 
-				stockupdate.done(function() {
+				stockupdate.done(function () {
 					fetchData(currentMovie.id);
 				});
 			}
@@ -185,23 +182,17 @@ function results() {
 	var inputVal = $('#game').val();
 	$("#gameresult").css({"max-height" : "50vh", "overflow-y": "scroll", "padding": "1%"});
 
-	if(inputVal.length){
-		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function(data) {
+	if (inputVal.length) {
+		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
 			document.getElementById("gameresult").innerHTML = data;
 		});
-	}
-
-	else if(inputVal.length === 0) {
-		$.get("/sm807/coursework/includes/game_search.php", {all: 1}).done(function(data) {
+	} else if (inputVal.length === 0) {
+		$.get("/sm807/coursework/includes/game_search.php", {all: 1}).done(function (data) {
 			document.getElementById("gameresult").innerHTML = data;
 		});
-	}
-
-	else {
-		resultDropdown.empty();
-	}
+	} else { document.getElementById("gameresult").innerHTML = ""; }
 	
-	setTimeout(function() {
+	setTimeout(function () {
 		emptyInfo();
 	}, 500);
 }
