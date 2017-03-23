@@ -13,7 +13,9 @@ var fetchData;
 var emptyInfo;
 
 $(window).on("load", function () {
-	results();
+	var windowWidth = (typeof window.outerWidth !== 'undefined')?Math.max(window.outerWidth, $(window).width()):$(window).width();
+    
+    results();
 
 	$('#game').on("click keydown keyup", function () {
         //Couldn't use on change, input or focus because IE was throwing a fuss
@@ -91,8 +93,15 @@ function showSearch() {
 
 
 function fetchAndFormat(id) {
-    $("section").css({"margin": "2% 0 0",
-    "height": "40vh"});
+    if(windowWidth > 1020) {
+        $("section").css({"margin": "2% 0 0",
+    "height": "40vh"});  
+    }
+    
+    else {
+        $("section").css({"margin": "2% 0 0",
+        "height": "100vh"});
+    }
     
 	$("#gameinfo").css({
 		"display": "flex"
