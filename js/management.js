@@ -68,6 +68,9 @@ $(window).on("load", function () {
 
 
 function showSearch() {
+    $("section").css({"margin": "0 0 0",
+    "height": "0vh"});
+    
     $("#game").css({
         "border": "none",
 		"width": "60vw",
@@ -88,6 +91,9 @@ function showSearch() {
 
 
 function fetchAndFormat(id) {
+    $("section").css({"margin": "2% 0 0",
+    "height": "35vh"});
+    
 	$("#gameinfo").css({
 		"display": "flex"
 	});

@@ -148,9 +148,13 @@ input, button, .button {
 }
 
 section {
-	height: 35vh;
+    margin: 0 0 0;
+    height: 0vh;
 	display: flex;
 	align-items: center;
+    overflow-y: hidden;
+    
+    transition: .5s;
 }
 
 section article {
@@ -199,7 +203,7 @@ section article h2 {
 
 #removegame {
 	flex: 1;
-	padding: 2%;
+	padding: 0 2%;
 	display: none;
 	border-left: 1px solid black;
 }
