@@ -164,5 +164,9 @@ form div {
         margin: 10% 0 0;
         max-width: 95%;
     }
+    
+    #bounce {
+        flex: auto;
+    }
 
 }
