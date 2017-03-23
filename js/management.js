@@ -13,7 +13,7 @@ var fetchData;
 var emptyInfo;
 
 $(window).on("load", function () {
-	var windowWidth = (typeof window.outerWidth !== 'undefined')?Math.max(window.outerWidth, $(window).width()):$(window).width();
+	windowWidth = (typeof window.outerWidth !== 'undefined')?Math.max(window.outerWidth, $(window).width()):$(window).width();
     
     results();
 
