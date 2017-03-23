@@ -149,7 +149,6 @@ input, button, .button {
 
 section {
 	max-height: 10000vh;
-	margin: 2% 0 0;
 	display: flex;
 	align-items: center;
 }
