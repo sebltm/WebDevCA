@@ -87,7 +87,6 @@ input, button, .button {
 	padding: 1%;
 	overflow-y: scroll;
 	max-height: 45vh;
-	height: 45vh;
 	width: 60%;
 	margin: auto;
     border-bottom: 1px solid black;

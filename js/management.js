@@ -82,7 +82,7 @@ function showSearch() {
 		this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 	});
     
-    $("#gameresult").css({"border-bottom": "1px solid rgba(0, 0, 0, 1)"});
+    $("#gameresult").css({"border-bottom": "1px solid rgba(0, 0, 0, 1)", "max-height": "45vh"});
 	document.getElementById("game").setAttribute("placeholder", "Name of video game");
 }
 
@@ -101,7 +101,7 @@ function fetchAndFormat(id) {
 
 	document.getElementById("game").value = "";
 	
-	$("#gameresult").css({ "max-height" : "0", "overflow-y": "hidden", "padding": "0%", "border-bottom": "1px solid rgba(0, 0, 0, 0)"});
+	$("#gameresult").css({ "max-height" : "0vh", "overflow-y": "hidden", "padding": "0%", "border-bottom": "1px solid rgba(0, 0, 0, 0)"});
 	
 	document.getElementById("game").setAttribute("placeholder", "Search");
 	
@@ -179,7 +179,7 @@ function results() {
 	"use strict";
     
 	var inputVal = $('#game').val();
-	$("#gameresult").css({"max-height" : "50vh", "overflow-y": "scroll", "padding": "1%"});
+	$("#gameresult").css({"max-height" : "45vh", "overflow-y": "scroll", "padding": "1%"});
 
 	if (inputVal.length) {
 		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
