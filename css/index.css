@@ -97,8 +97,6 @@ form div {
 	display: none;
 }
 
--webkit-appearance: none;
-
 @media (max-width: 1020px) {
 	body {
 		height: 100vh;
@@ -116,6 +114,7 @@ form div {
 	}
 	
 	input {
+        -webkit-appearance: none;
 		flex: 0 1 10%;
 		font-size: 2em;
 	}
