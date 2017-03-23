@@ -124,7 +124,8 @@ form div {
 		justify-content: space-around;
 	}
 	
-	#submitbutton, #signin {
-		flex: 0 1 40%;
-	}
+	#submitbutton, #signup {
+        max-width: 95%;
+    }
+
 }
