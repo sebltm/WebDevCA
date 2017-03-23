@@ -150,7 +150,7 @@ form div {
 	
 	input {
 		flex: 0 1 10%;
-		font-size: 2em;
+		font-size: 1.5em;
 	}
 	
 	form div {
@@ -160,6 +160,7 @@ form div {
 	}
 	
 	#submitbutton, #signup {
+        flex: 0 0 40%;
         margin: 10% 0 0;
         max-width: 95%;
     }
