@@ -118,6 +118,7 @@ input, button {
 @-moz-document url-prefix() { /*Percentage padding for inputs and buttons doesn't work in moz*/
 	#addgame {
         width: 60%;
+        margin: 20px auto;
         font-size: 1.4em;
     }
 }
@@ -125,6 +126,7 @@ input, button {
 @supports (-ms-ime-align:auto) { /*Same for edge*/
     #addgame {
         width: 60%;
+        margin: 20px auto;
         font-size: 1.4em;
     }
 }
