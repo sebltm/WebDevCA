@@ -36,6 +36,8 @@ $(window).on("load", function() {
 				
 				else {
 					$("#tryagain").show();
+                    $("#submitbutton").show();
+		            $("#bounce").hide();
 					document.getElementById("tryagain").innerHTML = "Please try again";
 				}
             },

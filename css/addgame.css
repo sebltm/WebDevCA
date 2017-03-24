@@ -24,7 +24,7 @@ h1 {
 form {
 	margin: auto;
 	width: 60%;
-	height: 70vh;
+	height: 80vh;
 	display: flex;
 	align-items: center;
 	flex-flow: column nowrap;

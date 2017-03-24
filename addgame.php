@@ -22,7 +22,8 @@
 		<form action="/sm807/coursework/includes/insertgame.php" id="addgame" role="form" method="post">
 			<input id="name" name="name" type="text" placeholder="Name of the game" required>
 			<input id="publisher" name="publisher" type="text" placeholder="Game publisher" required>
-			<label id="datelabel" for="date">Date published: </label><input id="date" name="date" type="date" value="<?php echo date("Y-m-d") ?>" required>
+            <label id="datelabel" for="date">Date published: </label><input id="date" name="date" type="date" value="<?php echo date("Y-m-d") ?>" required>
+            <input id="price" name="price" type="number" step="0.01" min="0" max="999.99" placeholder="£" required>
 			<input id="url" name="url" type="url" placeholder="URL of cover image" required>
 			<h2 id="invalid"></h2>
 			<input id="submit" value="Submit" type="submit">

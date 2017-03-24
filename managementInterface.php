@@ -47,6 +47,7 @@
 						<h3 id="stock"></h3>
 						<h3 id="sold"></h3>
 						<h3 id="publisher"></h3>
+                        <h3 id="cost"></h3>
 					</div>
 				</article>
 

@@ -4,12 +4,14 @@ session_start();
 
 require("dbconnect.php");
 
-if(isset($_SESSION["username"]) && isset($_POST["name"]) && isset($_POST["publisher"]) && isset($_POST["date"]) && isset($_POST["url"])) {
+if(isset($_SESSION["username"]) && isset($_POST["name"]) && isset($_POST["publisher"]) && isset($_POST["date"]) && isset($_POST["url"]) && isset($_POST["price"])) {
+    
 	$name = htmlspecialchars($_POST["name"]);
 	$publisher = htmlspecialchars($_POST["publisher"]);
 	$date = strtotime($_POST["date"]);
 	$url = filter_input(INPUT_POST, "url", FILTER_VALIDATE_URL);
-	
+    $price = floatval($_POST["price"]);
+    
 	$stock = 0;
 	$sold = 0;
 	
@@ -27,8 +29,8 @@ if(isset($_SESSION["username"]) && isset($_POST["name"]) && isset($_POST["publis
 	
 	else {
 		$date = $year."-".$month."-".$day;
-		$stmt = $db->prepare("INSERT INTO games (name, publisher, url, releasedate, stock, sold) VALUES(?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param("ssssii", $name, $publisher, $url, $date, $stock, $sold);
+		$stmt = $db->prepare("INSERT INTO games (name, publisher, url, releasedate, stock, sold, price) VALUES(?, ?, ?, ?, ?, ?, ?)");
+		$stmt->bind_param("ssssiid", $name, $publisher, $url, $date, $stock, $sold, $price);
 		$stmt->execute();
 	}
 }

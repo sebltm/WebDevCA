@@ -106,7 +106,7 @@ input, button, .button {
     position: relative;
 	padding: 1%;
 	overflow-y: scroll;
-	max-height: 45vh;
+	height: 45vh;
 	width: 60%;
 	margin: auto;
     border-bottom: 1px solid black;
@@ -193,6 +193,10 @@ section article h2 {
 	border-right: 1px solid black;
 	flex-flow: row;
 	justify-content: space-around;
+}
+
+#gameinfo h3 {
+    margin: 1%;
 }
 
 #gameimage {

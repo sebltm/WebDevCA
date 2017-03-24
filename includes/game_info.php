@@ -9,7 +9,7 @@ if(isset($_POST['search_id']) && isset($_SESSION['username'])) {
 	
 	if($stmt = $db->prepare("SELECT * FROM games WHERE id= ?")) {
 		$stmt->bind_param("i", $request);
-		$stmt->bind_result($id, $name, $publisher, $url, $releasedate, $stock, $sold);
+		$stmt->bind_result($id, $name, $publisher, $url, $releasedate, $stock, $sold, $price);
 		$stmt->execute();
 		if($stmt->fetch()) {
 			$result_array = array(
@@ -19,7 +19,8 @@ if(isset($_POST['search_id']) && isset($_SESSION['username'])) {
 				"url" => $url,
 				"releasedate" => $releasedate,
 				"stock" => $stock,
-				"sold" => $sold
+				"sold" => $sold,
+                "price" => $price
 			);
 			$json = json_encode($result_array);
 			echo $json;

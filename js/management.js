@@ -1,4 +1,4 @@
-var currentMovie = {
+var currentGame = {
 	id: undefined,
 	title: undefined,
 	stock: undefined,
@@ -6,63 +6,51 @@ var currentMovie = {
 	publisher: undefined
 };
 
-var req;
-var sales;
-var results;
-var fetchData;
-var emptyInfo;
+var req, sales, results, fetchData, emptyInfo, timepersale, amountpersale, propsensityToSellLow, propsensityToSellHigh, timepersale, amountpersale;
 
 $(window).on("load", function () {
 	windowWidth = (typeof window.outerWidth !== 'undefined')?Math.max(window.outerWidth, $(window).width()):$(window).width();
     
-    results();
-
+    results(); //Fetch the games
+    
 	$('#game').on("click keydown keyup", function () {
-        //Couldn't use on change, input or focus because IE was throwing a fuss
-		clearInterval(sales);
+        //Couldn't use on change, input or focus because IE was making a fuss
+        
+		clearTimeout(sales); //Stop the sales simulator
+        
+		showSearch(); //Display the results
 		
-		setTimeout(function () {
-			$("#gameinfo").hide();
-			$("#updatestock").hide();
-			$("#removegame").hide();
-		}, 500);
-		
-		results();
-		
-		showSearch();
+		results(); //Fetch the new results
 	});
 	
 	$("#update").on("focus", function () {
-        console.log(sales);
-		clearInterval(sales);
-        clearTimeout(sales);
-        console.log(sales);
+        if(sales) {
+		  clearTimeout(sales); //Stop the sales simulator while the user is has focus on the stock update
+        }
 	});
     
-    $("#update").on("input change", function () {
+    $("#update").on("blur", function () {
+        salesSimulator(); //Restart the sales simulator when the user is done inputing
+	})
+    
+    $("#update").on("input change", function () { //Update the stock based on what the user has entered
         if (document.getElementById("update").value >= 0) {
-			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: document.getElementById("update").value, name: currentMovie.title});
+			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: document.getElementById("update").value, name: currentGame.title});
 			
 			stockupdate.done(function () {
-				fetchData(currentMovie.id);
+				fetchData(currentGame.id); //Fetch the new information
 			});
 		}
     });
 	
-	$("#removeGameForm").submit(function (e) {
-		e.preventDefault();
+	$("#removeGameForm").submit(function (e) { //Remove a game from the database
+		e.preventDefault(); //Do not submit the form
 		
-		$.post("/sm807/coursework/includes/deletegame.php", {id: currentMovie.id}).done(function () {
+		$.post("/sm807/coursework/includes/deletegame.php", {id: currentGame.id}).done(function () {
 			
-			setTimeout(function () {
-				$("#gameinfo").hide();
-				$("#updatestock").hide();
-				$("#removegame").hide();
-			}, 500);
-			
-			results();
+            showSearch(); //Show the results window
             
-            showSearch();
+			results(); //Fetch results
 			
 		});
 		
@@ -73,8 +61,14 @@ $(window).on("load", function () {
 
 
 function showSearch() {
+    setTimeout(function () {
+        $("#gameinfo").hide();
+        $("#updatestock").hide();
+        $("#removegame").hide();
+	}, 500); //Hide the game info with time for transitions
+    
     $("section").css({"margin": "0 0 0",
-    "height": "0vh"});
+    "height": "0vh"}); //Hide the section of game info, removes the useless scrollbar
     
     $("#game").css({
         "border": "none",
@@ -83,32 +77,35 @@ function showSearch() {
 		"border-bottom": "2px solid rgba(0, 128, 0, 1)",
 		"border-radius": "0px",
 		"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-	});
+	}); //Show the game search bar
 
 	$("#game").hover(function () {
         this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
 		this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 	});
     
-    $("#gameresult").css({"border-bottom": "1px solid rgba(0, 0, 0, 1)", "max-height": "45vh"});
-	document.getElementById("game").setAttribute("placeholder", "Name of video game");
+    $("#gameresult").css({"border-bottom": "1px solid rgba(0, 0, 0, 1)", "height": "45vh"});
+	document.getElementById("game").setAttribute("placeholder", "Name of video game"); //Reset the placeholder
 }
 
 
 function fetchAndFormat(id) {
+    fetchData(id); //Fetch and display the data of the game
+    
     if(windowWidth > 1020) {
         $("section").css({"margin": "2% 0 0",
     "height": "40vh"});  
-    }
+    } //For desktops, only allow the lower half of the screen
     
     else {
         $("section").css({"margin": "2% 0 0",
         "height": "100vh"});
-    }
+    } //On mobiles, allow for more space
     
+    /*Display all info sections with flexbox*/
 	$("#gameinfo").css({
 		"display": "flex"
-	});
+	}); 
 	
 	$("#updatestock").css({
 		"display": "flex"
@@ -118,17 +115,18 @@ function fetchAndFormat(id) {
 		"display": "flex"
 	});
 
-	document.getElementById("game").value = "";
+    
+	document.getElementById("game").value = ""; //Empty the search bar of previous searches
 	
-	$("#gameresult").css({ "max-height" : "0vh", "overflow-y": "hidden", "padding": "0%", "border-bottom": "1px solid rgba(0, 0, 0, 0)"});
+	$("#gameresult").css({ "max-height" : "0vh", "overflow-y": "hidden", "padding": "0%", "border-bottom": "1px solid rgba(0, 0, 0, 0)"}); //Hide the result box
 	
-	document.getElementById("game").setAttribute("placeholder", "Search");
+	document.getElementById("game").setAttribute("placeholder", "Search"); //Put a smaller placeholder
 	
 	$("#game").css({
 		"width": "10vw",
 		"border": "1px solid black",
 		"box-shadow": "0 0px 0px 0 rgba(0, 0, 0, 0.0)"
-	});
+	}); //Take emphasis away from search bar to give more space to important information
     
     $("#game").hover(
 		function () {
@@ -140,96 +138,103 @@ function fetchAndFormat(id) {
 			this.style.borderBottom = "1px solid black";
 			this.style.boxShadow = "0 0px 0px 0 rgba(0, 0, 0, 0.0)";
 	});
-
-	fetchData(id);
 }
 
 
 function fetchData(id) {
 		
 	if (sales) {
-		clearTimeout(sales);
+		clearTimeout(sales); //Clear the sales simulator
 	}
 	
 	if (req) {
-		req.abort();
+		req.abort(); //Abort any previous game info ajax request
 	}
 	
-	req = $.post("/sm807/coursework/includes/game_info.php", {search_id: id});
+	req = $.post("/sm807/coursework/includes/game_info.php", {search_id: id}); //Load the game's info
 	
-	req.done(function (data) {
-		data = JSON.parse(data);
+	req.done(function (data) { //Display the game info and start the sales simulator
+        data = JSON.parse(data);
 		
-		currentMovie.id = data.id;
-		currentMovie.title = data.name;
-		currentMovie.stock = data.stock;
-		currentMovie.sold = data.sold;
-		currentMovie.publisher = data.publisher;
-		currentMovie.image = data.url;
+		currentGame.id = data.id;
+		currentGame.title = data.name;
+		currentGame.stock = data.stock;
+		currentGame.sold = data.sold;
+		currentGame.publisher = data.publisher;
+		currentGame.image = data.url;
+        currentGame.price = data.price;
 		
 		document.getElementById("gameimage").setAttribute("src", data.url);
 		document.getElementById("title").innerHTML = data.name;
 		document.getElementById("stock").innerHTML = "Stock: " + data.stock;
 		document.getElementById("sold").innerHTML = "Sold: " + data.sold;
 		document.getElementById("publisher").innerHTML = "Publisher: " + data.publisher;
+        document.getElementById("cost").innerHTML = "Price : £" + data.price;
 		
 		document.getElementById("update").value = data.stock;
-		
-		var timepersale, amountpersale;
-        timepersale = Math.floor((Math.random() * 1500) + 750);
-		amountpersale = Math.floor((Math.random() * 10) + 1);
-		
-		sales = setTimeout(function () {
-			if (currentMovie.stock > 0) {
-				currentMovie.sold += amountpersale;
-				currentMovie.stock -= amountpersale;
 
-				var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: currentMovie.stock, sold: currentMovie.sold, name: currentMovie.title});
-
-				stockupdate.done(function () {
-					fetchData(currentMovie.id);
-				});
-			}
-			
-		}, timepersale);
+        salesSimulator();
 	});
+}
+
+function salesSimulator() {
+    /*Sales simulator*/
+    propsensityToSellLow = 23*currentGame.price; //Cheap games are getting bought at a faster
+    propsensityToSellHigh = 55*currentGame.price;
+        
+    timepersale = Math.floor((Math.random() * propsensityToSellHigh) + propsensityToSellLow);
+    amountpersale = Math.floor((Math.random() * 10) + 1);
+
+    sales = setTimeout(function () {
+        if (currentGame.stock > 0) {
+            currentGame.sold += amountpersale; //Update the game's new amount sold
+            currentGame.stock -= amountpersale; //Update the game's new amout in stock
+
+            var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: currentGame.stock, sold: currentGame.sold, name: currentGame.title}); //Update the database
+
+            stockupdate.done(function () {
+                fetchData(currentGame.id); //Fetch the latest information from the database
+            });
+        }
+			
+    }, timepersale);
 }
 
 
 function results() {
 	"use strict";
     
-	var inputVal = $('#game').val();
-	$("#gameresult").css({"max-height" : "45vh", "overflow-y": "scroll", "padding": "1%"});
+	var inputVal = $('#game').val(); //Get what the user has typed
+	$("#gameresult").css({"max-height" : "45vh", "overflow-y": "scroll", "padding": "1%"}); //Update the size of the result window
 
-	if (inputVal.length) {
+	if (inputVal.length) { //If the user has typed something, get results similar to the input
 		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
 			document.getElementById("gameresult").innerHTML = data;
 		});
-	} else if (inputVal.length === 0) {
+	} else if (inputVal.length === 0) { //If the field is empty, show all games available
 		$.get("/sm807/coursework/includes/game_search.php", {all: 1}).done(function (data) {
 			document.getElementById("gameresult").innerHTML = data;
 		});
-	} else { document.getElementById("gameresult").innerHTML = ""; }
+	} else { document.getElementById("gameresult").innerHTML = ""; } //Otherwise the window should be empty
 	
 	setTimeout(function () {
-		emptyInfo();
+		emptyInfo(); //Clear the game info results should there be any
 	}, 500);
 }
 
 
-function emptyInfo() {
+function emptyInfo() { //Empty the different game info fields
 	document.getElementById("title").innerHTML = "";
 	document.getElementById("stock").innerHTML = "";
 	document.getElementById("sold").innerHTML = "";
 	document.getElementById("publisher").innerHTML = "";
 	document.getElementById("gameimage").setAttribute("src", "");
 	
-	currentMovie.id = null;
-	currentMovie.title = null;
-	currentMovie.stock = null;
-	currentMovie.sold = null;
-	currentMovie.publisher = null;
+	currentGame.id = null; //Empty the current game object
+	currentGame.title = null;
+	currentGame.stock = null;
+	currentGame.sold = null;
+	currentGame.publisher = null;
 	
 	$("#updatestock").hide();
 }
