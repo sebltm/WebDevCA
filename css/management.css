@@ -85,15 +85,15 @@ input, button, .button {
     justify-content: space-around;
 }
 
-#bounce.bouncing #bouncy1 {
+.bouncing .bouncy1 {
     animation: bouncing 1s infinite 0s ease-in-out;
 }
 
-#bounce.bouncing #bouncy2 {
+.bouncing .bouncy2 {
     animation: bouncing 1s infinite 0.1s ease-in-out;
 }
 
-#bounce.bouncing #bouncy3 {
+.bouncing .bouncy3 {
     animation: bouncing 1s infinite 0.2s ease-in-out;
 }
 
@@ -123,11 +123,6 @@ input, button, .button {
 	text-decoration: none
 }
 
-#gameresult a:hover h2 {
-	background-color: #EEEEEE;
-	text-decoration: underline;
-}
-
 #gameresult::-webkit-scrollbar {
     width: 0.5em;
 }
@@ -139,6 +134,29 @@ input, button, .button {
 #gameresult::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: 1px solid slategrey;
+}
+
+.gameresult {
+	flex: 1;
+	margin: 1% 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.gameresult:hover {
+	cursor: pointer;
+	background-color: #EEEEEE;
+	text-decoration: underline;
+}
+
+.gameresult img {
+	height: 15vh;
+}
+
+.gameresult h2 {
+	flex: 1;
 }
 
 #addgame {
@@ -199,9 +217,15 @@ section article h2 {
     margin: 1%;
 }
 
-#gameimage {
+#image {
 	flex: 2;
-	width: 40%;
+	max-width: 40%;
+}
+
+#gameimage {
+	display: none;
+	object-fit: contain;
+	width: 100%;
 }
 
 #info {

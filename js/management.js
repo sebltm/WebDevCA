@@ -6,7 +6,7 @@ var currentGame = {
 	publisher: undefined
 };
 
-var req, sales, results, fetchData, emptyInfo, timepersale, amountpersale, propsensityToSellLow, propsensityToSellHigh, timepersale, amountpersale;
+var req, sales, results, fetchData, emptyInfo, timepersale, amountpersale, propsensityToSellLow, propsensityToSellHigh, timepersale, amountpersale, gameid;
 
 $(window).on("load", function () {
 	windowWidth = (typeof window.outerWidth !== 'undefined')?Math.max(window.outerWidth, $(window).width()):$(window).width();
@@ -31,7 +31,7 @@ $(window).on("load", function () {
     
     $("#update").on("blur", function () {
         salesSimulator(); //Restart the sales simulator when the user is done inputing
-	})
+	});
     
     $("#update").on("input change", function () { //Update the stock based on what the user has entered
         if (document.getElementById("update").value >= 0) {
@@ -164,14 +164,18 @@ function fetchData(id) {
 		currentGame.image = data.url;
         currentGame.price = data.price;
 		
-		document.getElementById("gameimage").setAttribute("src", data.url);
 		document.getElementById("title").innerHTML = data.name;
 		document.getElementById("stock").innerHTML = "Stock: " + data.stock;
 		document.getElementById("sold").innerHTML = "Sold: " + data.sold;
 		document.getElementById("publisher").innerHTML = "Publisher: " + data.publisher;
         document.getElementById("cost").innerHTML = "Price : £" + data.price;
-		
 		document.getElementById("update").value = data.stock;
+		document.getElementById("gameimage").setAttribute("src", data.url);
+		
+		document.getElementById("gameimage").onload = function() {
+			$("#bounceimage").hide();
+			$("#gameimage").show();
+		};
 
         salesSimulator();
 	});
@@ -209,13 +213,48 @@ function results() {
 
 	if (inputVal.length) { //If the user has typed something, get results similar to the input
 		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
-			document.getElementById("gameresult").innerHTML = data;
+			$("#gameresult").empty();
+			if(data !== "<h2>No results</h2>") {
+				data = JSON.parse(data);
+				for(var i = 0; i<data.length; i++) {
+					$("#gameresult").append('<div gameid="'+data[i].id+'" class="gameresult"><h2>'+data[i].name+'</h2><img src="'+data[i].url+'"/></div>');
+				}
+				
+				$(".gameresult").on("click", function () {
+					gameid = parseInt(this.getAttribute("gameid"));
+					fetchAndFormat(gameid);
+				});
+			}
+			
+			else {
+				$("#gameresult").html(data);
+			}
+            
 		});
+		
 	} else if (inputVal.length === 0) { //If the field is empty, show all games available
 		$.get("/sm807/coursework/includes/game_search.php", {all: 1}).done(function (data) {
-			document.getElementById("gameresult").innerHTML = data;
+			
+			$("#gameresult").empty();
+			if(data !== "<h2>No results</h2>") {
+				data = JSON.parse(data);
+				for(var i = 0; i<data.length; i++) {
+					$("#gameresult").append('<div gameid="'+data[i].id+'" class="gameresult"><h2>'+data[i].name+'</h2><img src="'+data[i].url+'"/></div>');
+				}
+				
+				$(".gameresult").on("click", function () {
+					gameid = parseInt(this.getAttribute("gameid"));
+					fetchAndFormat(gameid);
+				});
+			}
+			
+			else {
+				$("#gameresult").html(data);
+			}
+			
 		});
-	} else { document.getElementById("gameresult").innerHTML = ""; } //Otherwise the window should be empty
+		
+	} else { $("#gameresult").html(""); } //Otherwise the window should be empty
 	
 	setTimeout(function () {
 		emptyInfo(); //Clear the game info results should there be any
@@ -224,11 +263,12 @@ function results() {
 
 
 function emptyInfo() { //Empty the different game info fields
-	document.getElementById("title").innerHTML = "";
-	document.getElementById("stock").innerHTML = "";
-	document.getElementById("sold").innerHTML = "";
-	document.getElementById("publisher").innerHTML = "";
-	document.getElementById("gameimage").setAttribute("src", "");
+	$("#title").html("");
+	$("#stock").html("");
+	$("#sold").html("");
+	$("#publisher").html("");
+	$("#cost").html("");
+	$("#gameimage").attr("src", "");
 	
 	currentGame.id = null; //Empty the current game object
 	currentGame.title = null;

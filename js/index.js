@@ -25,13 +25,7 @@ $(window).on("load", function() {
             data: postData,
             success: function(response) {
                 if(response === 'true') {
-                    $.get("managementInterface.php").done(function (data) {
-                        history.pushState("index.php", "Management Interface", "managementInterface.php");
-                        
-                        window.document.open();
-                        window.document.write(data);
-                        window.document.close();
-                    });
+                    window.location.assign("/sm807/coursework/managementInterface.php");
 				}
 				
 				else {
