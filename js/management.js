@@ -158,7 +158,6 @@ function fetchAndFormat(id) {
 	$("#gameresult").css({
 		"margin": "0",
 		"padding": "0%",
-		"max-height" : "0vh",
 		"overflow-y": "hidden",
 		"border-bottom": "1px solid rgba(0, 0, 0, 0)"
 	}); //Hide the result box
