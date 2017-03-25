@@ -109,6 +109,7 @@ function showSearch() {
         $("#gameresult").css({
 			"margin": "auto",
 			"height": "45vh",
+			"overflow-y": "scroll",
 			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
 		});
     } //For desktops, only allow the lower half of the screen
@@ -117,6 +118,7 @@ function showSearch() {
         $("#gameresult").css({
 			"margin": "auto",
 			"height": "55vh",
+			"overflow-y": "scroll",
 			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
 		});
     }
@@ -265,6 +267,7 @@ function results() {
         $("#gameresult").css({
 			"margin": "auto",
 			"height": "45vh",
+			"overflow-y": "scroll",
 			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
 		});
     } //For desktops, only allow the lower half of the screen
