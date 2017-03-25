@@ -127,6 +127,7 @@ function fetchAndFormat(id) {
 	$("#game").val(""); //Empty the search bar of previous searches
 	
 	$("#gameresult").css({
+		"margin": "0",
 		"padding": "0%",
 		"max-height" : "0vh",
 		"overflow-y": "hidden",
