@@ -63,6 +63,7 @@ $(window).on("load", function () {
 
 function showSearch() {
 	"use strict";
+	
     setTimeout(function () {
         $("#gameinfo").hide();
         $("#removegame").hide();
@@ -88,12 +89,22 @@ function showSearch() {
         this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
 		this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 	});
+	
+	if(windowWidth > 1020) {
+        $("#gameresult").css({
+			"margin": "auto",
+			"height": "45vh",
+			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
+		});
+    }
     
-    $("#gameresult").css({
-		"margin": "auto",
-		"height": "45vh",
-		"border-bottom": "1px solid rgba(0, 0, 0, 1)"
-	});
+    else {
+        $("#gameresult").css({
+			"margin": "auto",
+			"height": "60vh",
+			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
+		});
+    } //On mobiles, allow for more space
 	
 	$("#game").attr("placeholder", "Name of video game"); //Reset the placeholder
 }
