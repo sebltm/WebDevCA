@@ -78,14 +78,27 @@ function showSearch() {
 		"min-height": "0"
 	}); //Hide the section of game info, removes the useless scrollbar
     
-    $("#game").css({
-		"width": "60vw",
-        "border": "none",
-		"font-size": "1.8em",
-		"border-radius": "0px",
-		"border-bottom": "2px solid rgba(0, 128, 0, 1)",
-		"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
-	}); //Show the game search bar
+	if(windowWidth > 1020) {
+        $("#game").css({
+			"width": "60vw",
+			"border": "none",
+			"font-size": "1.8em",
+			"border-radius": "0px",
+			"border-bottom": "2px solid rgba(0, 128, 0, 1)",
+			"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+		}); //Show the game search bar 
+    } //For desktops, only allow the lower half of the screen
+    
+    else {
+        $("#game").css({
+			"width": "90vw",
+			"border": "none",
+			"font-size": "1.8em",
+			"border-radius": "0px",
+			"border-bottom": "2px solid rgba(0, 128, 0, 1)",
+			"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+		}); //Show the game search bar
+    }
 
 	$("#game").hover(function () {
         this.style.borderBottom = "2px solid rgba(0, 128, 0, 1)";
