@@ -28,7 +28,7 @@ section {
     overflow-y: hidden;
 	align-items: center;
     
-    transition: .5s;
+    transition: .4s ease-in-out;
 }
 
 section article {
@@ -99,7 +99,7 @@ input, button, .button {
     position: relative;
 	align-items: center;
     
-    transition: .5s;
+    transition: .4s ease-in-out;
 }
 
 #pickgame #game {
@@ -108,7 +108,7 @@ input, button, .button {
 	font-size: 180%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.4);
 	
-	transition: .5s;
+	transition: .4s ease-in-out;
 }
 
 #game:hover {
