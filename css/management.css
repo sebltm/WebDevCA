@@ -338,7 +338,6 @@ input, button, .button {
 	#gameresult{
 		padding: 0;
 		width: 90%;
-		min-height: 60vw;
 	}
 	
 	#gameinfo {
