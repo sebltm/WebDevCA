@@ -319,7 +319,7 @@ input, button, .button {
 	}
 	
 	section {
-		height: 100vh;
+		height: 120vh;
 		max-width: 100%;
 		flex-flow: column;
 		max-height: 10000vh;
