@@ -11,6 +11,8 @@ var req, sales, results, fetchData, emptyInfo, timepersale, amountpersale, props
 $(window).on("load", function () {
 	"use strict";
 	windowWidth = (typeof window.outerWidth !== 'undefined')?Math.max(window.outerWidth, $(window).width()):$(window).width();
+	
+	console.log(windowWidth);
     
     results(); //Fetch the games
     
