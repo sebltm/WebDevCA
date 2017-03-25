@@ -113,7 +113,7 @@ function fetchAndFormat(id) {
     else {
         $("section").css({
 			"margin": "2% 0 0",
-        	"height": "100vh"
+        	"max-height": "500vh"
 		});
     } //On mobiles, allow for more space
     
