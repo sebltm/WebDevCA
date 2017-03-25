@@ -285,7 +285,7 @@ section article h2 {
 	}
 	
 	section {
-		height: auto;
+		height: 100vh;
 		max-width: 100%;
 		max-height: 10000vh;
 		flex-flow: column;
