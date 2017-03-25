@@ -331,7 +331,7 @@ input, button, .button {
 	}
 	
 	#pickgame #game {
-		width: 90vw;
+		width: 90vw !important;
 		min-width: 30vw;
 	}
 	
