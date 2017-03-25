@@ -105,11 +105,21 @@ function showSearch() {
 		this.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 	});
 	
-	$("#gameresult").css({
-		"margin": "auto",
-		"height": "45vh",
-		"border-bottom": "1px solid rgba(0, 0, 0, 1)"
-	});
+	if(windowWidth > 1020) {
+        $("#gameresult").css({
+			"margin": "auto",
+			"height": "45vh",
+			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
+		});
+    } //For desktops, only allow the lower half of the screen
+    
+    else {
+        $("#gameresult").css({
+			"margin": "auto",
+			"height": "55vh",
+			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
+		});
+    }
 	
 	$("#game").attr("placeholder", "Name of video game"); //Reset the placeholder
 }
@@ -251,10 +261,21 @@ function results() {
     
 	var inputVal = $('#game').val(); //Get what the user has typed
 
-	$("#gameresult").css({
-		"max-height" : "45vh",
-		"overflow-y": "scroll"
-	}); //Update the size of the result window 
+	if(windowWidth > 1020) {
+        $("#gameresult").css({
+			"margin": "auto",
+			"height": "45vh",
+			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
+		});
+    } //For desktops, only allow the lower half of the screen
+    
+    else {
+        $("#gameresult").css({
+			"margin": "auto",
+			"height": "55vh",
+			"border-bottom": "1px solid rgba(0, 0, 0, 1)"
+		});
+    }
 
 	if (inputVal.length) { //If the user has typed something, get results similar to the input
 		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
