@@ -304,7 +304,10 @@ section article h2 {
 	
 	h1 {font-size: 1.8em}
 	
-	#pickgame{margin: 5% 0 0;}
+	#pickgame{
+		padding: 0;
+		margin: 5% 0 0;
+	}
 	
 	#pickgame #game {width: 90%}
 	#gameresult{width: 90%}
