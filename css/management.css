@@ -310,7 +310,12 @@ section article h2 {
 	}
 	
 	#pickgame #game {width: 90%}
-	#gameresult{width: 90%}
+	
+	#gameresult{
+		padding: 0;
+		width: 90%;
+		max-height: 60vh;
+	}
 	
 	article {
 		padding: 5%;
