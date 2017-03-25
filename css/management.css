@@ -330,7 +330,7 @@ input, button, .button {
 		margin: 5% 0 0;
 	}
 	
-	#pickgame #game { width: 90% }
+	#pickgame #game { width: 90vw }
 	
 	#gameresult{
 		padding: 0;
