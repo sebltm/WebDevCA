@@ -70,8 +70,9 @@ function showSearch() {
 	}, 500); //Hide the game info with time for transitions
     
     $("section").css({
-		"margin": "0 0 0",
-    	"height": "0vh"
+		"margin": "0",
+		"max-height": "0",
+		"min-height": "0"
 	}); //Hide the section of game info, removes the useless scrollbar
     
     $("#game").css({
@@ -106,13 +107,15 @@ function fetchAndFormat(id) {
     if(windowWidth > 1020) {
         $("section").css({
 			"margin": "2% 0 0",
-    		"height": "40vh"
+    		"min-height": "40vh",
+			"max-height": "40vh"
 		});  
     } //For desktops, only allow the lower half of the screen
     
     else {
         $("section").css({
 			"margin": "2% 0 0",
+    		"min-height": "40vh",
         	"max-height": "500vh"
 		});
     } //On mobiles, allow for more space
