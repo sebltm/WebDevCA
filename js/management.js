@@ -245,11 +245,20 @@ function results() {
 	"use strict";
     
 	var inputVal = $('#game').val(); //Get what the user has typed
-	$("#gameresult").css({
-		"padding": "1%",
-		"max-height" : "45vh",
-		"overflow-y": "scroll"
-	}); //Update the size of the result window
+	
+	if(windowWidth > 1020) {
+        $("#gameresult").css({
+			"max-height" : "45vh",
+			"overflow-y": "scroll"
+		}); //Update the size of the result window 
+    } //For desktops, only allow the lower half of the screen
+    
+    else {
+        $("#gameresult").css({
+			"max-height" : "60vh",
+			"overflow-y": "scroll"
+		}); //Update the size of the result window 
+    } //On mobiles, allow for more space
 
 	if (inputVal.length) { //If the user has typed something, get results similar to the input
 		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
