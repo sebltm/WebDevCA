@@ -36,11 +36,12 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 	$user = htmlspecialchars($_POST["username"]);
 	$email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 	
-	$password = sha1(htmlspecialchars($_POST["password"]));
-	$passCheck = sha1(htmlspecialchars($_POST["passwordCheck"]));
+	$password = htmlspecialchars($_POST["password"]);
+	$passCheck = htmlspecialchars($_POST["passwordCheck"]);
 	
 	if($password == $passCheck) {
-
+		$password = password_hash($password, PASSWORD_DEFAULT);
+		
 		$stmt = $db->prepare("INSERT INTO users (username, email, password) VALUES(?, ?, ?)");
 
 		$stmt->bind_param("sss", $user, $email, $password);
