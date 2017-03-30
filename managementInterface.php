@@ -38,8 +38,6 @@
 						</div>
 					</div>
 					<a class="button" id="addgame" href="https://students.emps.ex.ac.uk/sm807/coursework/addgame.php">Add a new game</a>
-					
-					<div id="sales"></div>
 				</article>
 
 				<section>
@@ -77,6 +75,8 @@
 					</article>
 
 				</section>
+				
+				<div id="sales"></div>
 		<?php } else { ?>
 				<h2>Please check your email to activate your account. You will need to <a href="https://students.emps.ex.ac.uk/sm807/coursework/includes/logout.php">logout</a> and sign back in.</h2>
 		<?php   }
