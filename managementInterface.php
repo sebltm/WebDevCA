@@ -22,7 +22,7 @@
 		//Only display the management interface if the user is signed in, otherwise prompt the user to sign in using the sigin page
 		if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { 
 			if($_SESSION["active"] == 1) { ?>
-				<h2 id="logout">Welcome <?php echo $_SESSION["username"] ?> <a href="https://students.emps.ex.ac.uk/sm807/includes/logout.php">Logout</a></h2>
+				<h2 id="logout">Welcome <?php echo $_SESSION["username"] ?> <a href="https://students.emps.ex.ac.uk/sm807/coursework/includes/logout.php">Logout</a></h2>
 
 				<article id="pickgame">
 					<input id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
