@@ -314,7 +314,7 @@ function results() {
 				
 				for(var i = 0; i<data.length; i++) {
 					$("#gameresult").append('<div gameid="'+data[i].id+'" class="gameresult"><h2>'+data[i].name+'</h2><img src="'+data[i].url+'"/></div>');
-					array.push[data[i].sold];
+					array.push(data[i].sold);
 				}
 		
 				var x=d3.scale.linear()
