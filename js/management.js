@@ -361,7 +361,9 @@ function loadSale() {
 			.attr("x", function(d, i) {
 				return i * (w / array.length);
 			})
-			.attr("y", 0)
+			.attr("y", function(d) {
+				return h - d
+			})
 			.attr("width", $("#gameresult").width() / array.length - 1 )
 			.attr("height", function(d) {
 				return d * h / d3.max(array);
