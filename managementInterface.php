@@ -10,6 +10,7 @@
 		<link href="css/management.css" type="text/css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="https://students.emps.ex.ac.uk/sm807/coursework/js/management.js"></script>
+		<script src="https://d3js.org/d3.v3.min.js"></script>
 		<title>Game&amp;Co</title>
 	</head>
 
@@ -37,6 +38,8 @@
 						</div>
 					</div>
 					<a class="button" id="addgame" href="https://students.emps.ex.ac.uk/sm807/coursework/addgame.php">Add a new game</a>
+					
+					<div id="sales"></div>
 				</article>
 
 				<section>
@@ -83,6 +86,20 @@
 	</body>
     
     <script>
+		
+		var array = [1, 2, 3, 4, 5, 6];
+		
+		var x=d3.scale.linear()
+			.domain([0, d3.max(data)])
+			.range([0, 420]);
+		
+		d3.select("#sales")
+			.selectAll("div")
+				.data(data)
+			.enter().append("div")
+				.style("width", function(d), {return x(d)+"px";})
+				.text(function(d) {return d; });
+		
         document.getElementById("nojava").style.display = "none";
     </script>
 </html>
