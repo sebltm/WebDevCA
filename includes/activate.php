@@ -22,7 +22,7 @@ if(!isset($_SESSION["username"])) {
 		$update->bind_param("s", $email);
 		$update->execute();
 		
-		echo 'Account activated. Please click <a href="/sm807/coursework/index.php">here</a> to sign in.';
+		echo 'Account activated. Please click <a href="https://students.emps.ex.ac.uk/sm807/coursework/index.php">here</a> to sign in.';
 		
 		$update->close();
 		
@@ -39,7 +39,7 @@ if(!isset($_SESSION["username"])) {
 }
 
 else {
-	header("students.emps.ex.ac.uk/sm807/coursework/index.php");
+	header("https://students.emps.ex.ac.uk/sm807/coursework/index.php");
 }
 
 $db->close();

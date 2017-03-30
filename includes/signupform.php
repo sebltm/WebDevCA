@@ -56,7 +56,7 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 		$message = "
 		<html>
 		<body>
-		<p>Please <a href='students.emps.ex.ac.uk/sm807/coursework/includes/activate.php?email=".$email."&token=".$hash."'>activate</a> your account.</p>
+		<p>Please <a href='https://students.emps.ex.ac.uk/sm807/coursework/includes/activate.php?email=".$email."&token=".$hash."'>activate</a> your account.</p>
 		</body>
 		</html>";
 		
