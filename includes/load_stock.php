@@ -4,7 +4,7 @@ session_start();
 require_once("dbconnect.php");
 
 if(isset($_SESSION["username"])) {
-	$stmt = $db->prepare("SELECT name, stock FROM games ORDER BY sold ASC");
+	$stmt = $db->prepare("SELECT name, stock FROM games ORDER BY stock ASC");
 	$stmt->bind_result($name, $sold);
 	$stmt->execute();
 
