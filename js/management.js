@@ -310,26 +310,11 @@ function results() {
 				
 				data = JSON.parse(data);
 				
-				var array = [];
-				
 				for(var i = 0; i<data.length; i++) {
 					$("#gameresult").append('<div gameid="'+data[i].id+'" class="gameresult"><h2>'+data[i].name+'</h2><img src="'+data[i].url+'"/></div>');
-					console.log(data[i].sold);
-					array.push(parseInt(data[i].sold));
 				}
 				
-				console.log(array);
-		
-				var x=d3.scale.linear()
-					.domain([0, d3.max(array)])
-					.range([0, 420]);
-
-				d3.select("#sales")
-					.selectAll("div")
-						.data(array)
-					.enter().append("div")
-						.style("width", function(d) {return x(d)+"px";})
-						.text(function(d) {return d; });
+				loadSale();
 				
 				$(".gameresult").on("click", function () {
 					gameid = parseInt(this.getAttribute("gameid"));
@@ -347,6 +332,25 @@ function results() {
 	}, 500);
 }
 
+function loadSale() {
+	var array = [];
+	$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/game_search.php").done(function(data) {
+		for(var i = 0; i<data.length; i++) {
+			array.push(parseInt(data[i].sold));
+		}
+		
+		var x=d3.scale.linear()
+			.domain([0, d3.max(array)])
+			.range([0, 420]);
+
+		d3.select("#sales")
+			.selectAll("div")
+				.data(array)
+			.enter().append("div")
+				.style("width", function(d) {return x(d)+"px";})
+				.text(function(d) {return d; });
+	});
+}
 
 function emptyInfo() { //Empty the different game info fields
 	"use strict";
