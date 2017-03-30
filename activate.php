@@ -9,7 +9,7 @@ if(!isset($_SESSION["username"])) {
 	
 	$stmt = $db->prepare("SELECT token FROM users WHERE email = ?");
 	$stmt->bind_param("s", $email);
-	echo $stmt;
+	var_dump($stmt);
 	$stmt->bind_result($dbtoken);
 	$stmt->execute();
 
