@@ -21,7 +21,7 @@ if(!isset($_SESSION["username"])) {
 	}
 	
 	else {
-		echo 'There was a problem in activating your account. Please try again or contact your administrator'.$token.$dbtoken;
+		echo 'There was a problem in activating your account. Please try again or contact your administrator'.$token." ".$dbtoken;
 	}
 }
 
