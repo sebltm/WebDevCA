@@ -412,7 +412,7 @@ function loadSale() {
 			.call(yAxis);
 		
 		var formatAsPercentage = d3.format(".1%");
-		yAxis.tickFormat(formatAsPercentage);
+		yAxis.tickFormat(50);
 		
 	});
 }
