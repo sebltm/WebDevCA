@@ -21,8 +21,6 @@ if(isset($_SESSION["username"])) {
 		array_push($result_array, $temp_array);
 
 		while($stmt->fetch()) {
-			echo $sold;
-			
 			$temp_array = array(
 			"name" => $name,
 			"sold" => $sold
