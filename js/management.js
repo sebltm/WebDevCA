@@ -349,6 +349,7 @@ function loadSale() {
 		var w = $("#gameresult").width();
 		var h = $("#gameresult").height();
 		var max = Math.max(array);
+		console.log(max);
 
 		var sales = d3.select("#sales")
 			.append("svg")
