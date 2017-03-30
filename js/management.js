@@ -345,18 +345,27 @@ function loadSale() {
 			console.log(data[i].sold);
 			array.push(parseInt(data[i].sold));
 		}
+		
+		var w = $("#gameresult").width();
+		var h = $("#gameresult").height();
 
 		var sales = d3.select("#sales")
 			.append("svg")
-			.attr("width", $("#gameresult").width());
+			.attr("width", w)
+			.attr("height", h);
 		
 		sales.selectAll("rect")
 			.data(data)
 			.enter()
 			.append("rect")
-			.attr("x", 0)
+			.attr("x", function(d, i) {
+				return i * (w / data.length);
+			})
 			.attr("y", 0)
-			.attr("width", $("#gameresult").width() / data.length - 1 );
+			.attr("width", $("#gameresult").width() / data.length - 1 )
+			.attr("height", function(d) {
+				return d;
+			});
 	});
 }
 
