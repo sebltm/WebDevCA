@@ -376,7 +376,7 @@ function loadSale() {
 		sales.selectAll("text")
 			.data(labels)
 			.enter()
-			.append("text")
+			.append("text");
 	});
 }
 
