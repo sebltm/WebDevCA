@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require("dbconnect.php");
+require("/includes/dbconnect.php");
 
 if(!isset($_SESSION["username"])) {
 	$email = $_GET["email"];
