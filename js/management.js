@@ -366,6 +366,9 @@ function loadSale() {
                   .orient("left")
                   .ticks(8);
 		
+		var formatAsPercentage = d3.format(".1%");
+		yAxis.tickFormat(formatAsPercentage);
+		
 		sales.selectAll("rect")
 			.data(array)
 			.enter()
