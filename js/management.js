@@ -349,7 +349,7 @@ function loadSale() {
 		var w = $("#gameresult").width();
 		var h = $("#gameresult").height();
 
-		var sales = d3.select("#sales")
+		var sales = d3.select("#stock")
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h);

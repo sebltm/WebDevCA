@@ -39,7 +39,7 @@
 					</div>
 					
 					
-					<div id="sales"></div>
+					<div id="stock"></div>
 					
 					<a class="button" id="addgame" href="https://students.emps.ex.ac.uk/sm807/coursework/addgame.php">Add a new game</a>
 				</article>
