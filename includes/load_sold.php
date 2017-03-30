@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once("dbconnect.php")
+require_once("dbconnect.php");
 
 if(isset($_SESSION["username"])) {
 	$stmt = $db->prepare("SELECT name, sold FROM games ORDER BY sold ASC");
