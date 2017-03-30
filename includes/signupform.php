@@ -53,11 +53,17 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 		$stmt->bind_param("ssss", $user, $email, $password, $hash);
 		$stmt->execute();
 		
-		$message = "Please activate your account at the following url:\n students.emps.ex.ac.uk/sm807/coursework/includes/activate.php?email=".$email."&token=".$hash;
-		$message = wordwrap($message, 70, "\r\n");
+		$message = "
+		<html>
+		<body>
+		<p>Please activate your account at the following url:<br /> <a href='students.emps.ex.ac.uk/sm807/coursework/includes/activate.php?email=".$email."&token=".$hash."'</a>";
+		
+		// Always set content-type when sending HTML email
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 		// Send
-		mail($email, 'Please activate your account', $message);
+		mail($email, 'Please activate your account', $message, $header);
 		
 		echo "true";
 		
