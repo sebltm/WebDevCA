@@ -2,6 +2,7 @@
 session_start();
 
 require("dbconnect.php");
+require("password.php");
 
 echo phpversion();
 
