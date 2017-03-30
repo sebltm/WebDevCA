@@ -39,7 +39,7 @@ if(!isset($_SESSION["username"])) {
 }
 
 else {
-	header("/sm807/coursework/index.php");
+	header("students.emps.ex.ac.uk/sm807/coursework/index.php");
 }
 
 $db->close();
