@@ -56,7 +56,7 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 		$message = "
 		<html>
 		<body>
-		<p>Please activate your account at the following url:<br /> <a href='students.emps.ex.ac.uk/sm807/coursework/includes/activate.php?email=".$email."&token=".$hash."'</a>";
+		<p>Please <a href='students.emps.ex.ac.uk/sm807/coursework/includes/activate.php?email=".$email."&token=".$hash."'>activate</a> your account at the following url:<br />";
 		
 		// Always set content-type when sending HTML email
 		$headers = "MIME-Version: 1.0" . "\r\n";
