@@ -213,6 +213,15 @@ input, button, .button {
 	text-decoration: none;
 }
 
+#sales div {
+	font: 100% "San Fransisco Display Light", sans-serif;
+	background-color: red;
+	text-align: right;
+	padding: 1%;
+	margin: 1%;
+	color: white;
+}
+
 /*END - Add a new game button*/
 
 /*START - Game info*/
