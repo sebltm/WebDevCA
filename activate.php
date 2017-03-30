@@ -7,6 +7,8 @@ if(!isset($_SESSION["username"])) {
 	$email = $_GET["email"];
 	$token = $_GET["token"];
 	
+	echo ($email.$token);
+	
 	$stmt = $db->prepare("SELECT token FROM users WHERE email = ?");
 	$stmt->bind_param("s", $email);
 	$stmt->bind_result($dbtoken);
