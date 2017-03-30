@@ -358,7 +358,7 @@ function loadSale() {
 			.attr("height", h);
 		
 		var yScale = d3.scale.linear()
-			.domain([0, d3.max(array, d)])
+			.domain([0, d3.max(array)])
 			.range([0, h]);
 		
 		sales.selectAll("rect")
