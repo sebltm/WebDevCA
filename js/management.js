@@ -314,6 +314,7 @@ function results() {
 				
 				for(var i = 0; i<data.length; i++) {
 					$("#gameresult").append('<div gameid="'+data[i].id+'" class="gameresult"><h2>'+data[i].name+'</h2><img src="'+data[i].url+'"/></div>');
+					console.log(data[i].sold);
 					array.push(parseInt(data[i].sold));
 				}
 		
