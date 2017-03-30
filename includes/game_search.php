@@ -8,7 +8,7 @@ if(isset($_SESSION["username"])) {
     if(isset($_GET['term'])) {
 		$request = htmlspecialchars($_GET["term"]);
 		
-		$stmt = $db->prepare("SELECT id, name, url FROM games WHERE name LIKE ? ORDER BY CASE WHEN name = ? THEN 1 WHEN name LIKE ? THEN 2 WHEN name LIKE ? THEN 3 ELSE 4 END");
+		$stmt = $db->prepare("SELECT id, name, url, sold FROM games WHERE name LIKE ? ORDER BY CASE WHEN name = ? THEN 1 WHEN name LIKE ? THEN 2 WHEN name LIKE ? THEN 3 ELSE 4 END");
 		$request_top = $request."%";
 		$request_mid = "%".$request;
 		$request_all = "%".$request."%";
@@ -24,7 +24,8 @@ if(isset($_SESSION["username"])) {
             $temp_array = array(
                 "id" => $id,
                 "name" => $name,
-                "url" => $url
+                "url" => $url,
+				"sold" => $sold
             );
             
             array_push($result_array, $temp_array);
@@ -33,7 +34,8 @@ if(isset($_SESSION["username"])) {
 				$temp_array = array(
                 "id" => $id,
                 "name" => $name,
-                "url" => $url
+                "url" => $url,
+				"sold" => $sold
                 );
                 
                 array_push($result_array, $temp_array);
@@ -50,8 +52,8 @@ if(isset($_SESSION["username"])) {
 	}
 
 	else if(isset($_REQUEST["all"]) && $_REQUEST["all"] == 1) {
-		$stmt = $db->prepare("SELECT id, name, url FROM games ORDER BY name ASC");
-		$stmt->bind_result($id, $name, $url);
+		$stmt = $db->prepare("SELECT id, name, url, sold FROM games ORDER BY name ASC");
+		$stmt->bind_result($id, $name, $url, $sold);
 		$stmt->execute();
 
 		$result_array = array();
@@ -62,7 +64,8 @@ if(isset($_SESSION["username"])) {
 			$temp_array = array(
 				"id" => $id,
 				"name" => $name,
-				"url" => $url
+				"url" => $url,
+				"sold" => $sold
 			);
 
 			array_push($result_array, $temp_array);
@@ -71,7 +74,8 @@ if(isset($_SESSION["username"])) {
 				$temp_array = array(
 				"id" => $id,
 				"name" => $name,
-				"url" => $url
+				"url" => $url, 
+				"sold" => $sold
 				);
 
 				array_push($result_array, $temp_array);
