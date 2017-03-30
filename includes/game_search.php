@@ -13,7 +13,7 @@ if(isset($_SESSION["username"])) {
 		$request_mid = "%".$request;
 		$request_all = "%".$request."%";
 		$stmt->bind_param("ssss", $request_all, $request, $request_top, $request_mid);
-		$stmt->bind_result($id, $name, $url);
+		$stmt->bind_result($id, $name, $url, $sold);
 		$stmt->execute();
         
         $result_array = array();
