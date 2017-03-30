@@ -43,15 +43,13 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 	if($password == $passCheck) {
 		$password = password_hash($password, PASSWORD_DEFAULT);
 		
-		$stmt = $db->prepare("INSERT INTO users (username, email, password) VALUES(?, ?, ?)");
+		$hash = md5(rand(0,1000));
+		$stmt = $db->prepare("INSERT INTO users (username, email, password, token) VALUES(?, ?, ?, ?)");
 
-		$stmt->bind_param("sss", $user, $email, $password);
+		$stmt->bind_param("ssss", $user, $email, $password, $hash);
 		$stmt->execute();
 		
-		$_SESSION["username"] = $user;
-		$hash = md5(rand(0,1000));
-		
-		$message = "Please activate your account at the following url:\n<a> href='students.emps.ex.ac.uk/sm807/coursework/activate.php?email=".$email."token=".$hash."</a>";
+		$message = "Please activate your account at the following url:\n href='students.emps.ex.ac.uk/sm807/coursework/activate.php?email=".$email."&token=".$hash;
 		$message = wordwrap($message, 70, "\r\n");
 
 		// Send
