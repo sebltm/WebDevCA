@@ -342,7 +342,6 @@ function loadSale() {
 		data = JSON.parse(data);
 		
 		for(var i = 0; i<data.length; i++) {
-			console.log(data[i].stock);
 			array.push(parseInt(data[i].stock));
 		}
 		
@@ -362,14 +361,14 @@ function loadSale() {
 				return i * (w / array.length);
 			})
 			.attr("y", function(d) {
-				return h - (d * h / d3.max(array))
+				return h - (d * h / d3.max(array));
 			})
 			.attr("width", $("#gameresult").width() / array.length - 1 )
 			.attr("height", function(d) {
 				return d * h / d3.max(array);
 			})
 			.attr("fill", function(d) {
-				return "rgb(" + 255 - d * 255 / d3.max(array) + ", 0, " + d * 255 / d3.max(array) + ")";
+				return "rgb("+255-(d*255/d3.max(array))+ ", 0, "+(d*255/d3.max(array))+")";
 			});
 	});
 }
