@@ -7,14 +7,12 @@ if(!isset($_SESSION["username"])) {
 	$email = $_GET["email"];
 	$token = $_GET["token"];
 	
-	echo ($email.$token);
+	echo ($email." ".$token);
 	
 	$stmt = $db->prepare("SELECT token FROM users WHERE email = ?");
 	$stmt->bind_param("s", $email);
 	$stmt->bind_result($dbtoken);
 	$stmt->execute();
-	
-	echo $dbtoken;
 
 	if($token == $dbtoken) {
 		$stmt = $db->prepare("UPDATE users SET activate = 1 WHERE email = ?");
