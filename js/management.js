@@ -317,6 +317,8 @@ function results() {
 					console.log(data[i].sold);
 					array.push(parseInt(data[i].sold));
 				}
+				
+				console.log(array);
 		
 				var x=d3.scale.linear()
 					.domain([0, d3.max(array)])
