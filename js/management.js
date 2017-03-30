@@ -348,8 +348,6 @@ function loadSale() {
 		
 		var w = $("#gameresult").width();
 		var h = $("#gameresult").height();
-		var maxVal = Math.max(array);
-		console.log(maxVal);
 
 		var sales = d3.select("#sales")
 			.append("svg")
@@ -366,7 +364,7 @@ function loadSale() {
 			.attr("y", 0)
 			.attr("width", $("#gameresult").width() / array.length - 1 )
 			.attr("height", function(d) {
-				return d * h / max;
+				return d * h / d3.max(array);
 			});
 	});
 }
