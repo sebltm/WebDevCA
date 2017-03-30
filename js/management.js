@@ -350,6 +350,7 @@ function loadSale() {
 		
 		var w = $("#gameresult").width();
 		var h = $("#gameresult").height();
+		var max = d3.max(array);
 
 		var sales = d3.select("#stock")
 			.append("svg")
@@ -364,25 +365,26 @@ function loadSale() {
 				return i * (w / array.length);
 			})
 			.attr("y", function(d) {
-				return h - (d * h / d3.max(array));
+				return h - (d * h / max);
 			})
 			.attr("width", $("#gameresult").width() / array.length - 1 )
 			.attr("height", function(d) {
-				return d * h / d3.max(array);
+				return d * h / max;
 			})
 			.attr("fill", function(d) {
-				return "rgb("+Math.floor(255-(d*255/d3.max(array)))+ ", "+Math.floor(d*255/d3.max(array))+" , 0)";
+				return "rgb("+Math.floor(255-(d*255/max))+ ", "+Math.floor(d*255/max)+" , 0)";
 			});
 		
 		sales.selectAll("text")
 			.data(labels)
 			.enter()
 			.append("text")
-			.attr("x", function(d, i) {
-				return i * (w / array.length);
+			.text(function(d) {
+				return d;
 			})
+			.attr("x", 0)
 			.attr("y", function(d) {
-				return h - (d * h / d3.max(array));
+				return h - (d * h / max);
 			});
 	});
 }
