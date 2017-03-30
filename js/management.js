@@ -373,7 +373,7 @@ function loadSale() {
 			})
 			.attr("width", w / array.length - 1 )
 			.attr("height", function(d) {
-				return yScale;
+				return yScale(d);
 			})
 			.attr("fill", function(d) {
 				return "rgb("+Math.floor(255-(d*255/max))+ ", "+Math.floor(d*255/max)+" , 0)";
