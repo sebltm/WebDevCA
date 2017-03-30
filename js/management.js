@@ -361,6 +361,11 @@ function loadSale() {
 			.domain([0, d3.max(array)])
 			.range([0, h]);
 		
+		var yAxis = d3.svg.axis()
+                  .scale(yScale)
+                  .orient("left")
+                  .ticks(50);
+		
 		sales.selectAll("rect")
 			.data(array)
 			.enter()
@@ -402,9 +407,10 @@ function loadSale() {
 			});
 		
 		sales.append("g")
-			.call(d3.svg.axis()
-				.scale(yScale));
-	});
+			.attr("class", "axis")
+			.attr("transform", "translate(1,0)")
+			.call(yAxis);
+			});
 }
 
 function emptyInfo() { //Empty the different game info fields
