@@ -63,7 +63,7 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 		// Send
-		mail($email, 'Please activate your account', $message, $header);
+		mail($email, 'Please activate your account', $message, $headers);
 		
 		echo "true";
 		
