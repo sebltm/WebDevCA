@@ -87,7 +87,7 @@
     
     <script>
 		
-		var array = [1, 2, 3, 4, 5, 6];
+		var data = [1, 2, 3, 4, 5, 6];
 		
 		var x=d3.scale.linear()
 			.domain([0, d3.max(data)])
