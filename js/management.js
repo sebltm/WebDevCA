@@ -385,8 +385,7 @@ function loadSale() {
 			.attr("x", function(d, i) {
 				return i * (w / array.length);
 			})
-			.attr("y", function(d) {
-				return h - d;
+			.attr("y", h)
 			});
 	});
 }
