@@ -369,14 +369,14 @@ function loadSale() {
 				return i * (w / array.length);
 			})
 			.attr("y", function(d) {
-				return h - yScale(d);
+				return h - (d * h / max);
 			})
 			.attr("width", w / array.length - 1 )
 			.attr("height", function(d) {
 				return yScale(d);
 			})
 			.attr("fill", function(d) {
-				return "rgb("+Math.floor(255-255*yScale(d))+ ", "+Math.floor(yScale(d))+" , 0)";
+				return "rgb("+Math.floor(255-(d*255/max))+ ", "+Math.floor(d*255/max)+" , 0)";
 			});
 		
 		sales.selectAll("text")
