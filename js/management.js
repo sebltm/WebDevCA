@@ -345,6 +345,7 @@ function loadSale() {
 		for(var i = 0; i<data.length; i++) {
 			array.push(parseInt(data[i].stock));
 			labels.push(data[i].name);
+			console.log(data[i].name);
 		}
 		
 		var w = $("#gameresult").width();
@@ -376,7 +377,13 @@ function loadSale() {
 		sales.selectAll("text")
 			.data(labels)
 			.enter()
-			.append("text");
+			.append("text")
+			.attr("x", function(d, i) {
+				return i * (w / array.length);
+			})
+			.attr("y", function(d) {
+				return h - (d * h / d3.max(array));
+			});
 	});
 }
 
