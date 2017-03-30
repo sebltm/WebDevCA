@@ -345,17 +345,18 @@ function loadSale() {
 			console.log(data[i].sold);
 			array.push(parseInt(data[i].sold));
 		}
-		
-		var x=d3.scale.linear()
-			.domain([0, d3.max(array)])
-			.range([0, 420]);
 
-		d3.select("#sales")
-			.selectAll("div")
-				.data(array)
-			.enter().append("div")
-				.style("width", function(d) {return x(d)+"px";})
-				.text(function(d) {return d; });
+		var sales = d3.select("#sales")
+			.append("svg")
+			.attr("width", $("#gameresult").width());
+		
+		sales.selectAll("rect")
+			.data(data)
+			.enter()
+			.append("rect")
+			.attr("x", 0)
+			.attr("y", 0)
+			.attr("width", $("#gameresult").width() / data.length - 1 );
 	});
 }
 
