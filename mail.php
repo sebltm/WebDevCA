@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // The message
 $message = "Line 1\r\nLine 2\r\nLine 3";
 

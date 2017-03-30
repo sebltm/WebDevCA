@@ -20,60 +20,64 @@
 		
 		<?php 
 		//Only display the management interface if the user is signed in, otherwise prompt the user to sign in using the sigin page
-		if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { ?>
-			<h2 id="logout">Welcome <?php echo $_SESSION["username"] ?> <a href="includes/logout.php">Logout</a></h2>
-		
-			<article id="pickgame">
-				<input id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
-				<div id="gameresult">
-                    <h2 id="nojava">Please enable JavaScript, I need it to work...</h2>
-                    <div id="bounce" class="bouncing">
-                        <svg height="70px" width="100%">
-                            <circle class="bouncy1" cx="25%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
-                            <circle class="bouncy2" cx="50%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
-                            <circle class="bouncy3" cx="75%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
-                        </svg>
-                    </div>
-                </div>
-				<a class="button" id="addgame" href="/sm807/coursework/addgame.php">Add a new game</a>
-			</article>
+		if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { 
+			if($_SESSION["active"] == 1) { ?>
+				<h2 id="logout">Welcome <?php echo $_SESSION["username"] ?> <a href="includes/logout.php">Logout</a></h2>
 
-			<section>
-
-				<article id="gameinfo">
-					<div id="image">
-						<div id="bounceimage" class="bouncing">
+				<article id="pickgame">
+					<input id="game" type="text" autocomplete="off" placeholder="Name of video game" size="22" />
+					<div id="gameresult">
+						<h2 id="nojava">Please enable JavaScript, I need it to work...</h2>
+						<div id="bounce" class="bouncing">
 							<svg height="70px" width="100%">
 								<circle class="bouncy1" cx="25%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
 								<circle class="bouncy2" cx="50%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
 								<circle class="bouncy3" cx="75%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
 							</svg>
 						</div>
-						<img id="gameimage" src="" />
 					</div>
-					<div id="info">
-						<h2 id="title"></h2>
-						<h3 id="stock"></h3>
-						<h3 id="sold"></h3>
-						<h3 id="publisher"></h3>
-                        <h3 id="cost"></h3>
-					</div>
+					<a class="button" id="addgame" href="/sm807/coursework/addgame.php">Add a new game</a>
 				</article>
 
-				<article id="updatestock">
-					<h2>Update the amount of items in stock:</h2>
-					<input id="update" type="number" max="65534">
-				</article>
-				
-				<article id="removegame">
-					<form id="removeGameForm" action="/sm807/coursework/includes/deletegame.php">
-						<input id="remove" type="submit" value="Delete.">
-						<h2>This action is irreversible and immediate.</h2>
-					</form>
-				</article>
-                
-			</section>
+				<section>
+
+					<article id="gameinfo">
+						<div id="image">
+							<div id="bounceimage" class="bouncing">
+								<svg height="70px" width="100%">
+									<circle class="bouncy1" cx="25%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+									<circle class="bouncy2" cx="50%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+									<circle class="bouncy3" cx="75%" cy="60%" r="6%" stroke="black" stroke-width="1" fill="black" />
+								</svg>
+							</div>
+							<img id="gameimage" src="" />
+						</div>
+						<div id="info">
+							<h2 id="title"></h2>
+							<h3 id="stock"></h3>
+							<h3 id="sold"></h3>
+							<h3 id="publisher"></h3>
+							<h3 id="cost"></h3>
+						</div>
+					</article>
+
+					<article id="updatestock">
+						<h2>Update the amount of items in stock:</h2>
+						<input id="update" type="number" max="65534">
+					</article>
+
+					<article id="removegame">
+						<form id="removeGameForm" action="/sm807/coursework/includes/deletegame.php">
+							<input id="remove" type="submit" value="Delete.">
+							<h2>This action is irreversible and immediate.</h2>
+						</form>
+					</article>
+
+				</section>
 		<?php } else { ?>
+				<h2>Please check your email to activate your account. You will need to <a href="/sm807/coursework/includes/logout.php">logout</a> and sign back in.</h2>
+		<?php   }
+			} else { ?>
 			<h2>Please <a href="index.php">sign-in</a></h2>
 		<?php } ?>
 	</body>

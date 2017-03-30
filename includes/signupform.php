@@ -3,6 +3,8 @@ session_start();
 
 require("dbconnect.php");
 
+echo phpversion();
+
 if(isset($_POST["username"]) && !isset($_POST["password"])) {
 	$user = htmlspecialchars($_POST["username"]);
 	
@@ -48,6 +50,13 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 		$stmt->execute();
 		
 		$_SESSION["username"] = $user;
+		$hash = md5(rand(0,1000));
+		
+		$message = "Please activate your account at the following url:\n<a href='students.emps.ex.ac.uk/sm807/coursework/activate.php?email=".$email."token=".$hash;
+		$message = wordwrap($message, 70, "\r\n");
+
+		// Send
+		mail($email, 'Please activate your account', $message);
 		
 		echo "true";
 	}
