@@ -366,9 +366,6 @@ function loadSale() {
                   .orient("left")
                   .ticks(8);
 		
-		var formatAsPercentage = d3.format(".1%");
-		yAxis.tickFormat(formatAsPercentage);
-		
 		sales.selectAll("rect")
 			.data(array)
 			.enter()
@@ -413,6 +410,10 @@ function loadSale() {
 			.attr("class", "axis")
 			.attr("transform", "translate(1,0)")
 			.call(yAxis);
+		
+		var formatAsPercentage = d3.format(".1%");
+		yAxis.tickFormat(formatAsPercentage);
+		
 	});
 }
 
