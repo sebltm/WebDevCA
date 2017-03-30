@@ -400,6 +400,10 @@ function loadSale() {
 			
 				return h -25;
 			});
+		
+		sales.append("g")
+			.call(d3.svg.axis()
+				.scale(yScale));
 	});
 }
 
