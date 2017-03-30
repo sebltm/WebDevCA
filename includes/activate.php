@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION = array();
 
 include("dbconnect.php");
 
