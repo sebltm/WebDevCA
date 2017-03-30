@@ -355,14 +355,14 @@ function loadSale() {
 			.attr("height", h);
 		
 		sales.selectAll("rect")
-			.data(data)
+			.data(array)
 			.enter()
 			.append("rect")
 			.attr("x", function(d, i) {
-				return i * (w / data.length);
+				return i * (w / array.length);
 			})
 			.attr("y", 0)
-			.attr("width", $("#gameresult").width() / data.length - 1 )
+			.attr("width", $("#gameresult").width() / array.length - 1 )
 			.attr("height", function(d) {
 				return d;
 			});
