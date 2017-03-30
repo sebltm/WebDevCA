@@ -2,7 +2,7 @@
 
 session_start();
 
-require("dbconnect.php");
+require_once("dbconnect.php");
 
 if(isset($_SESSION["username"]) && isset($_POST["name"]) && isset($_POST["publisher"]) && isset($_POST["date"]) && isset($_POST["url"]) && isset($_POST["price"])) {
     
@@ -32,5 +32,9 @@ if(isset($_SESSION["username"]) && isset($_POST["name"]) && isset($_POST["publis
 		$stmt = $db->prepare("INSERT INTO games (name, publisher, url, releasedate, stock, sold, price) VALUES(?, ?, ?, ?, ?, ?, ?)");
 		$stmt->bind_param("ssssiid", $name, $publisher, $url, $date, $stock, $sold, $price);
 		$stmt->execute();
+		$stmt->close();
 	}
 }
+
+$db->close();
+?>

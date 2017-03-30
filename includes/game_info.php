@@ -29,10 +29,11 @@ if(isset($_POST['search_id']) && isset($_SESSION['username'])) {
 		else {
 			echo "<h1>No matches found</h1>";
 		}
+		
+		$stmt->close();
 	}
 
 	else {
-		var_dump($db);
 		echo "Error while trying to connect to MySQL database: " . $db->connect_error;
 	}
 }

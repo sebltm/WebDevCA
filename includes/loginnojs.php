@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require("dbconnect.php");
-require("password.php");
+require_once("dbconnect.php");
+require_once("password.php");
 
 if(isset($_POST["username"]) && isset($_POST["password"])) {
 	$user = $_POST["username"];
@@ -24,9 +24,13 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
 	else {
 		echo 'false';
 	}
+	
+	$stmt->close();
 }
 
 else {
 	echo 'false';
 }
+
+$db->close();
 ?>

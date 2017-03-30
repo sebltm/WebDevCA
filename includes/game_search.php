@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require("dbconnect.php");
+require_once("dbconnect.php");
 
 if(isset($_SESSION["username"])) {
     
@@ -45,6 +45,8 @@ if(isset($_SESSION["username"])) {
 		else {
 			?><h2>No results</h2><?php
 		}
+		
+		$stmt->close();
 	}
 
 	else if(isset($_REQUEST["all"]) && $_REQUEST["all"] == 1) {
@@ -82,6 +84,8 @@ if(isset($_SESSION["username"])) {
 			?><h2>No results</h2><?php
 		
 		}
+		
+		$stmt->close();
   	}
 }
 

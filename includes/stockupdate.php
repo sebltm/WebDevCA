@@ -16,6 +16,7 @@ if(isset($_POST['stock'])) {
 		if($stmt = $db->prepare("UPDATE games SET stock= ? WHERE name= ?")) {
 			$stmt->bind_param("is", $stock, $_POST["name"]);
 			$stmt->execute();
+			$stmt->close();
 		}
 	}
 }
@@ -29,6 +30,7 @@ if(isset($_POST['sold'])) {
 		if($stmt = $db->prepare("UPDATE games SET sold = ? WHERE name= ?")) {
 			$stmt->bind_param("is", $sold, $_POST["name"]);
 			$stmt->execute();
+			$stmt->close();
 		}
 	}
 }

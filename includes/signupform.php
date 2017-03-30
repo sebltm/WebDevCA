@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require("dbconnect.php");
-require("password.php");
+require_once("dbconnect.php");
+require_once("password.php");
 
 if(isset($_POST["username"]) && !isset($_POST["password"])) {
 	$user = htmlspecialchars($_POST["username"]);
@@ -16,6 +16,8 @@ if(isset($_POST["username"]) && !isset($_POST["password"])) {
 	if(!empty($username)) {
 		echo "true";
 	}
+	
+	$stmt->close();
 }
 
 else if(isset($_POST["email"]) && !isset($_POST["password"])) {
@@ -30,6 +32,8 @@ else if(isset($_POST["email"]) && !isset($_POST["password"])) {
 	if(!empty($emailreq)) {
 		echo "true";
 	}
+	
+	$stmt->close();
 }
 
 else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["passwordCheck"]) && !(empty($_POST["username"]) && empty($_POST["email"]) && empty($_POST["password"]) && empty($_POST["passwordCheck"]))) {
@@ -56,6 +60,8 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 		mail($email, 'Please activate your account', $message);
 		
 		echo "true";
+		
+		$stmt->close();
 	}
 	
 	else {
@@ -66,4 +72,6 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 else {
 	echo 'Please fill in all fields';
 }
+
+$db->close();
 ?>
