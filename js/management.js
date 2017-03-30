@@ -326,7 +326,7 @@ function results() {
 
 				d3.select("#sales")
 					.selectAll("div")
-						.data(data)
+						.data(array)
 					.enter().append("div")
 						.style("width", function(d) {return x(d)+"px";})
 						.text(function(d) {return d; });
