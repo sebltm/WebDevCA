@@ -338,6 +338,9 @@ function loadSale() {
 
 	$("#sales").empty();
 	$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/load_sold.php", {}).done(function(data) {
+		
+		console.log(data);
+		
 		for(var i = 0; i<data.length; i++) {
 			console.log(data[i].sold);
 			array.push(parseInt(data[i].sold));
