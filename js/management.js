@@ -357,6 +357,10 @@ function loadSale() {
 			.attr("width", w)
 			.attr("height", h);
 		
+		var yScale = d3.scale.linear()
+			.domain([0, d3.max(dataset, d)])
+			.range([0, h]);
+		
 		sales.selectAll("rect")
 			.data(array)
 			.enter()
@@ -369,7 +373,7 @@ function loadSale() {
 			})
 			.attr("width", w / array.length - 1 )
 			.attr("height", function(d) {
-				return d * h / max;
+				return yScale;
 			})
 			.attr("fill", function(d) {
 				return "rgb("+Math.floor(255-(d*255/max))+ ", "+Math.floor(d*255/max)+" , 0)";
