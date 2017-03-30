@@ -222,6 +222,32 @@ input, button, .button {
 	color: white;
 }
 
+.axis path, .axis line {
+	fill: none;
+	stroke: grey;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-size: 100%;
+}
+
+.bar {
+	fill: steelblue;
+	fill-opacity: .9;
+}
+
+.bar:hover {
+	fill: #008B8B;
+}
+
+svg text.label {
+	fill: white;
+	font: 100%;
+	font-weight: 400;
+	text-anchor: middle;
+}
+
 /*END - Add a new game button*/
 
 /*START - Game info*/
