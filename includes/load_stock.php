@@ -4,7 +4,7 @@ session_start();
 require_once("dbconnect.php");
 
 if(isset($_SESSION["username"])) {
-	$stmt = $db->prepare("SELECT name, sold FROM games ORDER BY sold ASC");
+	$stmt = $db->prepare("SELECT name, stock FROM games ORDER BY sold ASC");
 	$stmt->bind_result($name, $sold);
 	$stmt->execute();
 
@@ -15,7 +15,7 @@ if(isset($_SESSION["username"])) {
 
 		$temp_array = array(
 			"name" => $name,
-			"sold" => $sold
+			"stock" => $stock
 		);
 
 		array_push($result_array, $temp_array);
@@ -23,7 +23,7 @@ if(isset($_SESSION["username"])) {
 		while($stmt->fetch()) {
 			$temp_array = array(
 			"name" => $name,
-			"sold" => $sold
+			"stock" => $stock
 			);
 
 			array_push($result_array, $temp_array);

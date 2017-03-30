@@ -337,13 +337,13 @@ function loadSale() {
 	var array = [];
 
 	$("#sales").empty();
-	$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/load_sold.php", {}).done(function(data) {
+	$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/load_stock.php", {}).done(function(data) {
 		
 		data = JSON.parse(data);
 		
 		for(var i = 0; i<data.length; i++) {
-			console.log(data[i].sold);
-			array.push(parseInt(data[i].sold));
+			console.log(data[i].stock);
+			array.push(parseInt(data[i].stock));
 		}
 		
 		var w = $("#gameresult").width();
