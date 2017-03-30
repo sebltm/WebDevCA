@@ -78,7 +78,7 @@
 				<h2>Please check your email to activate your account. You will need to <a href="/sm807/coursework/includes/logout.php">logout</a> and sign back in.</h2>
 		<?php   }
 			} else { ?>
-			<h2>Please <a href="index.php">sign-in</a></h2>
+			<h2>Please <a href="index.php">sign-in</a> or check your email to activate your account.</h2>
 		<?php } ?>
 	</body>
     

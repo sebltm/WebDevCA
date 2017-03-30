@@ -53,7 +53,7 @@ else if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["pas
 		$stmt->bind_param("ssss", $user, $email, $password, $hash);
 		$stmt->execute();
 		
-		$message = "Please activate your account at the following url:\n href='students.emps.ex.ac.uk/sm807/coursework/activate.php?email=".$email."&token=".$hash;
+		$message = "Please activate your account at the following url:\n students.emps.ex.ac.uk/sm807/coursework/includes/activate.php?email=".$email."&token=".$hash;
 		$message = wordwrap($message, 70, "\r\n");
 
 		// Send
