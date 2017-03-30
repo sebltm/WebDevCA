@@ -410,7 +410,7 @@ function loadSale() {
 			.attr("class", "axis")
 			.attr("transform", "translate(1,0)")
 			.call(yAxis);
-			});
+	});
 }
 
 function emptyInfo() { //Empty the different game info fields
