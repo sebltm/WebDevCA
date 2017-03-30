@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/management.css" type="text/css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://students.emps.ex.ac.uk/sm807/js/management.js"></script>
+		<script src="https://students.emps.ex.ac.uk/sm807/coursework/js/management.js"></script>
 		<title>Game&amp;Co</title>
 	</head>
 
