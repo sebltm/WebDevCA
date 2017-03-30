@@ -11,7 +11,7 @@
           <link rel="stylesheet" type="text/css" href="indexie.css" />
         <![endif]-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="/sm807/coursework/js/index.js"></script>
+		<script src="https://students.emps.ex.ac.uk/sm807/coursework/js/index.js"></script>
 		<title>Game&amp;Co</title>
 	</head>
 
@@ -19,7 +19,7 @@
 
 		<h1 role="">Game&amp;Co Management Log-In</h1>
 
-		<form action="includes/loginnojs.php" id="signin" role="form" method="post">
+		<form action="https://students.emps.ex.ac.uk/sm807/includes/loginnojs.php" id="signin" role="form" method="post">
 			<input id="username" name="username" type="text" placeholder="Enter your email or your username" required autocomplete="username">
 			<input name="password" id="password" type="password" placeholder="Password" required autocomplete="current-password">
 			<div>

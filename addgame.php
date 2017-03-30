@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/addgame.css" type="text/css" rel="stylesheet"></style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="/sm807/coursework/js/addgame.js"></script>
+		<script src="https://students.emps.ex.ac.uk/sm807/coursework/js/addgame.js"></script>
 		<title>Game&amp;Co</title>
 	</head>
 
@@ -19,7 +19,7 @@
 		<?php 
 		//Only display the management interface if the user is signed in, otherwise prompt the user to sign in using the sigin page
 		if(isset($_SESSION["username"]) && !empty($_SESSION["username"])) { ?>
-		<form action="/sm807/coursework/includes/insertgame.php" id="addgame" role="form" method="post">
+		<form action="https://students.emps.ex.ac.uk/sm807/coursework/includes/insertgame.php" id="addgame" role="form" method="post">
 			<input id="name" name="name" type="text" placeholder="Name of the game" required>
 			<input id="publisher" name="publisher" type="text" placeholder="Game publisher" required>
             <label id="datelabel" for="date">Date released: </label><input id="date" name="date" type="date" value="<?php echo date("Y-m-d") ?>" required>

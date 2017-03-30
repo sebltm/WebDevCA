@@ -25,7 +25,7 @@ $(window).on("load", function() {
             data: postData,
             success: function(response) {
                 if(response === 'true') {
-                    window.location.assign("/sm807/coursework/managementInterface.php");
+                    window.location.assign("https://students.emps.ex.ac.uk/sm807/coursework/managementInterface.php");
 				}
 				
 				else {

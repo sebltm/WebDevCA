@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/management.css" type="text/css" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="js/management.js"></script>
+		<script src="https://students.emps.ex.ac.uk/sm807/js/management.js"></script>
 		<title>Game&amp;Co</title>
 	</head>
 
@@ -36,7 +36,7 @@
 							</svg>
 						</div>
 					</div>
-					<a class="button" id="addgame" href="/sm807/coursework/addgame.php">Add a new game</a>
+					<a class="button" id="addgame" href="https://students.emps.ex.ac.uk/sm807/coursework/addgame.php">Add a new game</a>
 				</article>
 
 				<section>
@@ -67,7 +67,7 @@
 					</article>
 
 					<article id="removegame">
-						<form id="removeGameForm" action="/sm807/coursework/includes/deletegame.php">
+						<form id="removeGameForm" action="https://students.emps.ex.ac.uk/sm807/coursework/includes/deletegame.php">
 							<input id="remove" type="submit" value="Delete.">
 							<h2>This action is irreversible and immediate.</h2>
 						</form>
@@ -75,7 +75,7 @@
 
 				</section>
 		<?php } else { ?>
-				<h2>Please check your email to activate your account. You will need to <a href="/sm807/coursework/includes/logout.php">logout</a> and sign back in.</h2>
+				<h2>Please check your email to activate your account. You will need to <a href="https://students.emps.ex.ac.uk/sm807/coursework/includes/logout.php">logout</a> and sign back in.</h2>
 		<?php   }
 			} else { ?>
 			<h2>Please <a href="index.php">sign-in</a> or check your email to activate your account.</h2>

@@ -38,7 +38,7 @@ $(window).on("load", function () {
     
     $("#update").on("input change", function () { //Update the stock based on what the user has entered
         if ($("#update").val() >= 0) {
-			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: $("#update").val(), name: currentGame.title});
+			var stockupdate = $.post("https://students.emps.ex.ac.uk/sm807/coursework/includes/stockupdate.php", {stock: $("#update").val(), name: currentGame.title});
 			
 			stockupdate.done(function () {
 				fetchData(currentGame.id); //Fetch the new information
@@ -49,7 +49,7 @@ $(window).on("load", function () {
 	$("#removeGameForm").submit(function (e) { //Remove a game from the database
 		e.preventDefault(); //Do not submit the form
 		
-		$.post("/sm807/coursework/includes/deletegame.php", {id: currentGame.id}).done(function () {
+		$.post("https://students.emps.ex.ac.uk/sm807/coursework/includes/deletegame.php", {id: currentGame.id}).done(function () {
 			
             showSearch(); //Show the results window
             
@@ -197,7 +197,7 @@ function fetchData(id) {
 		req.abort(); //Abort any previous game info ajax request
 	}
 	
-	req = $.post("/sm807/coursework/includes/game_info.php", {search_id: id}); //Load the game's info
+	req = $.post("https://students.emps.ex.ac.uk/sm807/coursework/includes/game_info.php", {search_id: id}); //Load the game's info
 	
 	req.done(function (data) { //Display the game info and start the sales simulator
         data = JSON.parse(data);
@@ -243,7 +243,7 @@ function salesSimulator() {
             currentGame.sold += amountpersale; //Update the game's new amount sold
             currentGame.stock -= amountpersale; //Update the game's new amout in stock
 
-            var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {
+            var stockupdate = $.post("https://students.emps.ex.ac.uk/sm807/coursework/includes/stockupdate.php", {
 				stock: currentGame.stock,
 				sold: currentGame.sold,
 				name: currentGame.title
@@ -281,7 +281,7 @@ function results() {
     }
 
 	if (inputVal.length) { //If the user has typed something, get results similar to the input
-		$.get("/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
+		$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/game_search.php", {term: inputVal}).done(function (data) {
 			$("#gameresult").empty();
 			if(data !== "<h2>No results</h2>") {
 				
@@ -301,7 +301,7 @@ function results() {
 		});
 		
 	} else if (inputVal.length === 0) { //If the field is empty, show all games available
-		$.get("/sm807/coursework/includes/game_search.php", {all: 1}).done(function (data) {
+		$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/game_search.php", {all: 1}).done(function (data) {
 			
 			$("#gameresult").empty();
 			if(data !== "<h2>No results</h2>") {

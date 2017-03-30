@@ -13,7 +13,7 @@ $(window).on('load', function() {
 	document.getElementById("username").addEventListener("input", function(e) {
 		var username = document.getElementById("username").value;
 		
-		$.post("/sm807/coursework/includes/signupform.php", {username: username}).done(function(data) {
+		$.post("https://students.emps.ex.ac.uk/sm807/coursework/includes/signupform.php", {username: username}).done(function(data) {
 			if(data === "true") {
 				document.getElementById("username").style.borderBottom = "2px solid red";
 			}
@@ -28,7 +28,7 @@ $(window).on('load', function() {
 	document.getElementById("email").addEventListener("input", function(e) {
 		var email = document.getElementById("email").value;
 		
-		$.post("/sm807/coursework/includes/signupform.php", {email: email}).done(function(data) {
+		$.post("https://students.emps.ex.ac.uk/sm807/coursework/includes/signupform.php", {email: email}).done(function(data) {
 			if(data === "true") {
 				document.getElementById("email").style.borderBottom = "2px solid red";
 			}
@@ -48,9 +48,9 @@ $(window).on('load', function() {
 		var pass = document.getElementById("password").value;
 		var passCheck = document.getElementById("passwordcheck").value;
 		
-		$.post("/sm807/coursework/includes/signupform.php", {username: username, email: email, password: pass, passwordCheck: passCheck}).done(function(data) {
+		$.post("https://students.emps.ex.ac.uk/sm807/coursework/includes/signupform.php", {username: username, email: email, password: pass, passwordCheck: passCheck}).done(function(data) {
 			if(data === "true") {
-				window.location.assign("/sm807/coursework/managementInterface.php");
+				window.location.assign("https://students.emps.ex.ac.uk/sm807/coursework/managementInterface.php");
 			}
 			
 			else {
