@@ -362,7 +362,7 @@ function loadSale() {
 			.range([0, h]);
 		
 		var yAxis = d3.svg.axis()
-                  .scale(-yScale)
+                  .scale(yScale)
                   .orient("left");
 		
 		sales.selectAll("rect")
