@@ -215,7 +215,8 @@ input, button, .button {
 
 #sales div {
 	font: 100% "San Fransisco Display Light", sans-serif;
-	background-color: red;
+	background-color: none;
+	border: 1px green solid;
 	text-align: right;
 	padding: 1%;
 	margin: 1%;
@@ -242,7 +243,7 @@ input, button, .button {
 }
 
 svg text.label {
-	fill: white;
+	fill: black;
 	font: 100%;
 	font-weight: 400;
 	text-anchor: middle;
