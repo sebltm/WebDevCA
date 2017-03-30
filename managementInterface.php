@@ -97,7 +97,7 @@
 			.selectAll("div")
 				.data(data)
 			.enter().append("div")
-				.style("width", function(d), {return x(d)+"px";})
+				.style("width", function(d) {return x(d)+"px";})
 				.text(function(d) {return d; });
 		
         document.getElementById("nojava").style.display = "none";
