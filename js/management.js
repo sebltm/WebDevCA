@@ -368,7 +368,7 @@ function loadSale() {
 				return d * h / d3.max(array);
 			})
 			.attr("fill", function(d) {
-				return "rgb("+255-(d*255/d3.max(array))+ ", 0, "+(d*255/d3.max(array))+")";
+				return "rgb("+(255-(d*255/d3.max(array)))+ ", 0, "+(d*255/d3.max(array))+")";
 			});
 	});
 }
