@@ -11,6 +11,8 @@ if(!isset($_SESSION["username"])) {
 	$stmt->bind_param("s", $email);
 	$stmt->bind_result($dbtoken);
 	$stmt->execute();
+	
+	echo $dbtoken;
 
 	if($token == $dbtoken) {
 		$stmt = $db->prepare("UPDATE users SET activate = 1 WHERE email = ?");
