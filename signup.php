@@ -17,10 +17,10 @@
 		<h1 role="">Game&amp;Co Management Sign-Up</h1>
 
 		<form action="/sm807/coursework/signup.php" id="signupform" role="form" method="post">
-			<input id="username" name="username" type="text" placeholder="Enter your username" required>
-			<input id="email" name="email" type="email" placeholder="Enter your email" required>
-			<input name="password" id="password" type="password" placeholder="Enter your password" required>
-			<input name="passwordcheck" id="passwordcheck" type="password" placeholder="Enter your password again" required>
+			<input id="username" name="username" type="text" placeholder="Enter your username" required autocomplete="username">
+			<input id="email" name="email" type="email" placeholder="Enter your email" required autocomplete="email">
+			<input name="password" id="password" type="password" placeholder="Enter your password" required autocomplete="new-password">
+			<input name="passwordcheck" id="passwordcheck" type="password" placeholder="Enter your password again" required autocomplete="new-password">
 			<h2 id="tryagain"></h2>
 			<input id="signup" value="Sign-up" type="submit">
 		</form>

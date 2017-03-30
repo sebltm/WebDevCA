@@ -20,8 +20,8 @@
 		<h1 role="">Game&amp;Co Management Log-In</h1>
 
 		<form action="includes/loginnojs.php" id="signin" role="form" method="post">
-			<input id="username" name="username" type="text" placeholder="Enter your email or your username">
-			<input name="password" id="password" type="password" placeholder="Password">
+			<input id="username" name="username" type="text" placeholder="Enter your email or your username" required autocomplete="username">
+			<input name="password" id="password" type="password" placeholder="Password" required autocomplete="current-password">
 			<div>
 				<input id="submitbutton" type="submit" value="Login">
                 <div id="bounce" class="bouncing">

@@ -8,9 +8,11 @@ if(isset($_SESSION["username"])) {
     if(isset($_GET['term'])) {
 		$request = htmlspecialchars($_GET["term"]);
 		
-		$stmt = $db->prepare("SELECT id, name, url FROM games WHERE name LIKE ? ORDER BY name ASC");
-		$request = $request."%";
-		$stmt->bind_param("s", $request);
+		$stmt = $db->prepare("SELECT id, name, url FROM games WHERE name LIKE ? ORDER BY CASE WHEN name LIKE ? THEN 1 WHEN name LIKE ? THEN 3 ELSE 2 END");
+		$request_top = $request."%";
+		$request_mid = "%".$request;
+		$request = "%".$request."%";
+		$stmt->bind_param("sss", $request, $request_top, $request_mid);
 		$stmt->bind_result($id, $name, $url);
 		$stmt->execute();
         

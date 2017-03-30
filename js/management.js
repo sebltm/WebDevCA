@@ -37,8 +37,8 @@ $(window).on("load", function () {
 	});
     
     $("#update").on("input change", function () { //Update the stock based on what the user has entered
-        if (document.getElementById("update").value >= 0) {
-			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: document.getElementById("update").value, name: currentGame.title});
+        if ($("#update").val() >= 0) {
+			var stockupdate = $.post("/sm807/coursework/includes/stockupdate.php", {stock: $("#update").val(), name: currentGame.title});
 			
 			stockupdate.done(function () {
 				fetchData(currentGame.id); //Fetch the new information
@@ -211,13 +211,13 @@ function fetchData(id) {
 		currentGame.publisher = data.publisher;
 		
 		
-		document.getElementById("update").value = data.stock;
-		document.getElementById("title").innerHTML = data.name;
-		document.getElementById("sold").innerHTML = "Sold: " + data.sold;
-		document.getElementById("gameimage").setAttribute("src", data.url);
-		document.getElementById("stock").innerHTML = "Stock: " + data.stock;
-        document.getElementById("cost").innerHTML = "Price : £" + data.price;
-		document.getElementById("publisher").innerHTML = "Publisher: " + data.publisher;
+		$("#update").val(data.stock);
+		$("#title").html(data.name);
+		$("#sold").html("Sold: " + data.sold);
+		$("#gameimage").attr("src", data.url);
+		$("#stock").html("Stock: " + data.stock);
+        $("#cost").html("Price : £" + data.price);
+		$("#publisher").html("Publisher: " + data.publisher);
 		
 		document.getElementById("gameimage").onload = function() {
 			$("#gameimage").show();
