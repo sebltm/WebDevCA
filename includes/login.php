@@ -2,7 +2,7 @@
 session_start();
 
 require_once("dbconnect.php");
-require_once("password.php")
+require_once("password.php");
 
 if(isset($_POST["username"]) && isset($_POST["password"])) {
 	$user = htmlspecialchars($_POST["username"]);
