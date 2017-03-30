@@ -25,7 +25,7 @@ if(isset($_SESSION["username"])) {
                 "id" => $id,
                 "name" => $name,
                 "url" => $url,
-				"sold" => (int)$sold
+				"sold" => $sold
             );
             
             array_push($result_array, $temp_array);
@@ -35,7 +35,7 @@ if(isset($_SESSION["username"])) {
                 "id" => $id,
                 "name" => $name,
                 "url" => $url,
-				"sold" => (int)$sold
+				"sold" => $sold
                 );
                 
                 array_push($result_array, $temp_array);
@@ -65,7 +65,7 @@ if(isset($_SESSION["username"])) {
 				"id" => $id,
 				"name" => $name,
 				"url" => $url,
-				"sold" => (int)$sold
+				"sold" => $sold
 			);
 
 			array_push($result_array, $temp_array);
@@ -75,7 +75,7 @@ if(isset($_SESSION["username"])) {
 				"id" => $id,
 				"name" => $name,
 				"url" => $url, 
-				"sold" => (int)$sold
+				"sold" => $sold
 				);
 
 				array_push($result_array, $temp_array);
