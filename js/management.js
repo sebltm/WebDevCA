@@ -364,7 +364,7 @@ function loadSale() {
 		var yAxis = d3.svg.axis()
                   .scale(yScale)
                   .orient("left")
-                  .ticks(50);
+                  .ticks(8);
 		
 		sales.selectAll("rect")
 			.data(array)
