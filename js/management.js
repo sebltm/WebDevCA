@@ -408,7 +408,6 @@ function loadSale() {
 		
 		sales.append("g")
 			.attr("class", "axis")
-			.attr("transform", "translate(1,0)")
 			.call(yAxis);
 		
 		var formatAsPercentage = d3.format(".1%");

@@ -223,6 +223,10 @@ input, button, .button {
 	color: black;
 }
 
+svg {
+	overflow: visible;
+}
+
 .axis path, .axis line {
 	fill: none;
 	stroke: grey;
