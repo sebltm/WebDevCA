@@ -335,6 +335,7 @@ function results() {
 function loadSale() {
 	
 	var array = [];
+	var labels = [];
 
 	$("#sales").empty();
 	$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/load_stock.php", {}).done(function(data) {
@@ -343,6 +344,7 @@ function loadSale() {
 		
 		for(var i = 0; i<data.length; i++) {
 			array.push(parseInt(data[i].stock));
+			labels.push(data[i].name);
 		}
 		
 		var w = $("#gameresult").width();
@@ -370,6 +372,11 @@ function loadSale() {
 			.attr("fill", function(d) {
 				return "rgb("+Math.floor(255-(d*255/d3.max(array)))+ ", "+Math.floor(d*255/d3.max(array))+" , 0)";
 			});
+		
+		sales.selectAll("text")
+			.data(labels)
+			.enter()
+			.append("text")
 	});
 }
 
