@@ -371,12 +371,12 @@ function loadSale() {
 			.enter()
 			.append("rect")
 			.attr("x", function(d, i) {
-				return (i*(w/array.length)+(w/array.length)/(margin/array.length));
+				return (i*(w/array.length));
 			})
 			.attr("y", function(d) {
 				return h - (d * h / max);
 			})
-			.attr("width", (w/array.length)/(margin/array.length))
+			.attr("width", (w/array.length)/(margin*0.5/array.length))
 			.attr("height", function(d) {
 				return yScale(0)-yScale(d);
 			})
