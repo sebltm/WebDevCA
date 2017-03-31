@@ -395,7 +395,7 @@ function loadSale() {
 				return i * (w / array.length);
 			})
 			.attr("y", function(d, i) {
-				h + 15*i;
+				return h + 15*i;
 			});
 		
 		sales.append("g")
