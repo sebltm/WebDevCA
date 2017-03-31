@@ -376,7 +376,7 @@ function loadSale() {
 			.attr("y", function(d) {
 				return h - (d * h / max);
 			})
-			.attr("width", ((w/array.length)-(margin/array.length)))
+			.attr("width", ((w/array.length)))
 			.attr("height", function(d) {
 				return yScale(0)-yScale(d);
 			})
