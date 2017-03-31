@@ -371,7 +371,7 @@ function loadSale() {
 			.enter()
 			.append("rect")
 			.attr("x", function(d, i) {
-				return margin+(i * (w / array.length));
+				return (i * (w-margin / array.length));
 			})
 			.attr("y", function(d) {
 				return h - (d * h / max);
