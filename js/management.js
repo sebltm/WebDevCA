@@ -351,7 +351,7 @@ function loadSale() {
 		var w = $("#gameresult").width();
 		var h = $("#gameresult").height();
 		var max = d3.max(array);
-		var margin = w*0.01;
+		var margin = w*0.1;
 
 		var sales = d3.select("#stock")
 			.append("svg")
@@ -371,7 +371,7 @@ function loadSale() {
 			.enter()
 			.append("rect")
 			.attr("x", function(d, i) {
-				return margin+(i * (w / array.length));
+				return margin+(i * (w / (array.length+margin));
 			})
 			.attr("y", function(d) {
 				return h - (d * h / max);
