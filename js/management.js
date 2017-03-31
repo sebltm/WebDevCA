@@ -12,8 +12,6 @@ $(window).on("load", function () {
 	"use strict";
 	
 	windowWidth = (typeof window.outerWidth !== 'undefined')?Math.max(window.outerWidth, $(window).width()):$(window).width();
-	
-	console.log(windowWidth);
     
     results(); //Fetch the games
     
@@ -25,8 +23,6 @@ $(window).on("load", function () {
 		showSearch(); //Display the results
 		
 		results(); //Fetch the new results
-		
-		loadStock();
 	});
 	
 	$("#update").on("focus", function () {
@@ -342,6 +338,7 @@ function loadStock() {
 	var labels = [];
 
 	$("#stockGraph").empty();
+	
 	$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/load_stock.php", {}).done(function(data) {
 		
 		data = JSON.parse(data);
@@ -349,7 +346,6 @@ function loadStock() {
 		for(var i = 0; i<6; i++) {
 			array.push(parseInt(data[i].stock));
 			labels.push(data[i].name);
-			console.log(data[i].name);
 		}
 		
 		var w = windowWidth*0.3;
