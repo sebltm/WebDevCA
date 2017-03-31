@@ -359,7 +359,7 @@ function loadSale() {
 		
 		var yScale = d3.scale.linear()
 			.domain([0, d3.max(array)])
-			.range([0, h]);
+			.range([h, 0]);
 		
 		var yAxis = d3.svg.axis()
                   .scale(yScale)
