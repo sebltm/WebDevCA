@@ -348,8 +348,8 @@ function loadSale() {
 			console.log(data[i].name);
 		}
 		
-		var w = $("#gameresult").width();
-		var h = $("#gameresult").height();
+		var w = windowWidth*0.3;
+		var h = $(window).height*0.5;
 		var max = d3.max(array);
 		var margin = w*0.1;
 
