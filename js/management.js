@@ -392,7 +392,7 @@ function loadSale() {
 				return d;
 			})
 			.attr("x", function(d, i) {
-				return (i * (w / array.length)*1.05);
+				return (i * (w / array.length));
 			})
 			.attr("y", function(d, i) {
 				return h - 15*(i+1);
@@ -401,9 +401,6 @@ function loadSale() {
 		sales.append("g")
 			.attr("class", "axis")
 			.call(yAxis);
-		
-		var formatAsPercentage = d3.format(".1%");
-		yAxis.tickFormat(50);
 		
 	});
 }
