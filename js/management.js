@@ -337,7 +337,7 @@ function loadSale() {
 	var array = [];
 	var labels = [];
 
-	$("#sales").empty();
+	$("#stockGraph").empty();
 	$.get("https://students.emps.ex.ac.uk/sm807/coursework/includes/load_stock.php", {}).done(function(data) {
 		
 		data = JSON.parse(data);
@@ -353,7 +353,7 @@ function loadSale() {
 		var max = d3.max(array);
 		var margin = w*0.1;
 
-		var sales = d3.select("#stock")
+		var sales = d3.select("#stockGraph")
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h);
@@ -401,7 +401,6 @@ function loadSale() {
 		sales.append("g")
 			.attr("class", "axis")
 			.call(yAxis);
-		
 	});
 }
 

@@ -213,7 +213,7 @@ input, button, .button {
 	text-decoration: none;
 }
 
-#sales div {
+#stockGraph div {
 	font: 100% "San Fransisco Display Light", sans-serif;
 	background-color: none;
 	border: 1px green solid;
