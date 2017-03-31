@@ -25,6 +25,8 @@ $(window).on("load", function () {
 		showSearch(); //Display the results
 		
 		results(); //Fetch the new results
+		
+		loadStock();
 	});
 	
 	$("#update").on("focus", function () {
@@ -130,6 +132,8 @@ function showSearch() {
 
 function fetchAndFormat(id) {
 	"use strict";
+	
+	$("#stockGraph").empty();
 	
     fetchData(id); //Fetch and display the data of the game
     
@@ -353,7 +357,6 @@ function loadStock() {
 		var w = windowWidth*0.3;
 		var h = $(window).height()*0.5;
 		var max = d3.max(array);
-		var margin = w*0.1;
 
 		var sales = d3.select("#stockGraph")
 			.append("svg")
