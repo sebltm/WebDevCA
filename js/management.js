@@ -342,7 +342,7 @@ function loadSale() {
 		
 		data = JSON.parse(data);
 		
-		for(var i = 0; i<data.length; i++) {
+		for(var i = 0; i<6; i++) {
 			array.push(parseInt(data[i].stock));
 			labels.push(data[i].name);
 			console.log(data[i].name);
