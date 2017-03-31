@@ -3,7 +3,7 @@ session_start();
 
 require_once("dbconnect.php");
 
-if(isset($_POST['stock'])) {
+if(isset($_POST['stock']) && isset($_SESSION["username"])) {
 	$stock = htmlspecialchars($_POST["stock"]);
 	$stock = intval($stock); //Ensures any input will be an integer
 
@@ -21,7 +21,7 @@ if(isset($_POST['stock'])) {
 	}
 }
 
-if(isset($_POST['sold'])) {
+if(isset($_POST['sold']) && isset($_SESSION["username"])) {
 	$sold = htmlspecialchars($_POST["sold"]);
 	$sold = intval($sold); //Ensures any input will be an integer
 
