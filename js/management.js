@@ -254,6 +254,8 @@ function salesSimulator() {
                 fetchData(currentGame.id); //Fetch the latest information from the database
             });
         }
+		
+		loadStock();
 			
     }, timepersale);
 }
@@ -314,7 +316,7 @@ function results() {
 					$("#gameresult").append('<div gameid="'+data[i].id+'" class="gameresult"><h2>'+data[i].name+'</h2><img src="'+data[i].url+'"/></div>');
 				}
 				
-				loadSale();
+				loadStock();
 				
 				$(".gameresult").on("click", function () {
 					gameid = parseInt(this.getAttribute("gameid"));
@@ -332,7 +334,7 @@ function results() {
 	}, 500);
 }
 
-function loadSale() {
+function loadStock() {
 	
 	var array = [];
 	var labels = [];
