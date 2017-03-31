@@ -193,8 +193,6 @@ function fetchAndFormat(id) {
 
 function fetchData(id) {
 	"use strict";
-	
-	loadStock();
 		
 	if (sales) {
 		clearTimeout(sales); //Clear the sales simulator
