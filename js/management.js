@@ -189,6 +189,8 @@ function fetchAndFormat(id) {
 
 function fetchData(id) {
 	"use strict";
+	
+	loadStock();
 		
 	if (sales) {
 		clearTimeout(sales); //Clear the sales simulator
@@ -254,8 +256,6 @@ function salesSimulator() {
                 fetchData(currentGame.id); //Fetch the latest information from the database
             });
         }
-		
-		loadStock();
 			
     }, timepersale);
 }
