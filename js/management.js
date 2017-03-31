@@ -349,7 +349,7 @@ function loadSale() {
 		}
 		
 		var w = windowWidth*0.3;
-		var h = $(window).height*0.5;
+		var h = $(window).height()*0.5;
 		var max = d3.max(array);
 		var margin = w*0.1;
 
